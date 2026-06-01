@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Leaderboard</title>
 
 <style>
 body {
-  margin:0;
-  font-family:Arial;
-  background:#050611;
-  color:white;
+    margin: 0;
+    font-family: Arial;
+    background: radial-gradient(circle at top, #0b0f1a, #05070d);
+    color: white;
 }
 
 nav {
-  display:flex;
-  justify-content:space-between;
-  padding:20px;
-  background:#0d0f1f;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 50px;
+    background: rgba(0,0,0,0.4);
 }
 
-nav a {
-  color:white;
-  margin:0 10px;
-  text-decoration:none;
+.logo { font-weight: bold; }
+.logo span { color: #7c4dff; }
+
+.nav-links a {
+    color: #bbb;
+    margin-left: 15px;
+    text-decoration: none;
 }
+
+.nav-links a:hover { color: white; }
 
 table {
-  width:70%;
-  margin:60px auto;
-  border-collapse:collapse;
+    width: 70%;
+    margin: 60px auto;
+    border-collapse: collapse;
 }
 
-td,th {
-  padding:15px;
-  border-bottom:1px solid #2a2f55;
-  text-align:center;
+td, th {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
 }
 
-th {
-  color:#22d3ee;
+.hero {
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
 }
 </style>
 
@@ -46,24 +57,33 @@ th {
 <body>
 
 <nav>
-  <div><b>LEADERBOARD</b></div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="store.html">Store</a>
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="discord.html">Discord</a>
-    <a href="support.html">Support</a>
-  </div>
+    <div class="logo">SPEARZ <span>FFA</span></div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="shop.html">Shop</a>
+        <a href="discord.html">Discord</a>
+        <a href="support.html">Support</a>
+    </div>
 </nav>
 
-<h1 style="text-align:center;">LEADERBOARD</h1>
+<h1 class="hero">Leaderboard</h1>
 
 <table>
-<tr><th>Rank</th><th>Name</th><th>Kills</th></tr>
-<tr><td>#1</td><td>NotSpearz</td><td>12456</td></tr>
-<tr><td>#2</td><td>Tryhard</td><td>9876</td></tr>
-<tr><td>#3</td><td>ComboKing</td><td>8765</td></tr>
+<tr><th>#</th><th>Name</th><th>Kills</th></tr>
+<tr><td>1</td><td>NotSpearz</td><td>12,456</td></tr>
+<tr><td>2</td><td>Tryh4rd</td><td>9,876</td></tr>
+<tr><td>3</td><td>ComboKing</td><td>8,765</td></tr>
+<tr><td>4</td><td>Player4</td><td>7,120</td></tr>
+<tr><td>5</td><td>Player5</td><td>6,900</td></tr>
+<tr><td>6</td><td>Player6</td><td>6,400</td></tr>
+<tr><td>7</td><td>Player7</td><td>5,800</td></tr>
+<tr><td>8</td><td>Player8</td><td>5,200</td></tr>
+<tr><td>9</td><td>Player9</td><td>4,900</td></tr>
+<tr><td>10</td><td>Player10</td><td>4,300</td></tr>
 </table>
+
+<footer>Leaderboard</footer>
 
 </body>
 </html>
