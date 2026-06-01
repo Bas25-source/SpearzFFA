@@ -1,89 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-<title>Leaderboard</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard – Spearz FFA</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: radial-gradient(circle at top, #0b0f1a, #05070d);
-    color: white;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 18px 50px;
-    background: rgba(0,0,0,0.4);
-}
-
-.logo { font-weight: bold; }
-.logo span { color: #7c4dff; }
-
-.nav-links a {
-    color: #bbb;
-    margin-left: 15px;
-    text-decoration: none;
-}
-
-.nav-links a:hover { color: white; }
-
-table {
-    width: 70%;
-    margin: 60px auto;
-    border-collapse: collapse;
-}
-
-td, th {
-    padding: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-}
-
-.hero {
-    text-align: center;
-    margin-top: 40px;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #666;
-}
+:root{--bg:#060810;--purple:#7c3aed;--purple2:#a855f7;--neon-purple:#b517ff;--neon-blue:#4cc9f0;--border:rgba(255,255,255,0.07);--text:#e2e8f0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Exo 2',sans-serif;overflow-x:hidden;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(6,8,16,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.logo{display:flex;flex-direction:column;line-height:1;}
+.logo-main{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;background:linear-gradient(90deg,#fff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo-sub{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--neon-purple);}
+.nav-links{display:flex;gap:4px;}
+.nav-links a{color:#94a3b8;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:8px 14px;border-radius:6px;transition:all .2s;position:relative;}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(124,58,237,0.15);}
+.nav-links a.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:2px;background:var(--purple2);border-radius:2px;}
+.btn-nav{padding:9px 20px;border-radius:8px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;text-decoration:none;background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;box-shadow:0 0 20px rgba(168,85,247,0.4);transition:all .3s;}
+.page-header{text-align:center;padding:60px 20px 50px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(124,58,237,0.12) 0%,transparent 70%);}
+.page-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--purple2);margin-bottom:8px;}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);letter-spacing:4px;background:linear-gradient(135deg,#fff,#c4b5fd,var(--neon-blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:16px;padding:0 48px 50px;}
+.podium-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px 20px 0;border-radius:16px 16px 0 0;border:1px solid var(--border);border-bottom:none;min-width:160px;position:relative;overflow:hidden;}
+.podium-1{height:200px;background:linear-gradient(180deg,rgba(251,191,36,0.08),rgba(251,191,36,0.02));border-color:rgba(251,191,36,0.2);}
+.podium-2{height:160px;background:linear-gradient(180deg,rgba(148,163,184,0.08),rgba(148,163,184,0.02));border-color:rgba(148,163,184,0.15);}
+.podium-3{height:130px;background:linear-gradient(180deg,rgba(180,83,9,0.08),rgba(180,83,9,0.02));border-color:rgba(180,83,9,0.15);}
+.podium-crown{font-size:28px;margin-bottom:4px;}
+.podium-avatar{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;border:2px solid rgba(255,255,255,0.1);}
+.p1-avatar{background:linear-gradient(135deg,#fbbf24,#f59e0b);}
+.p2-avatar{background:linear-gradient(135deg,#94a3b8,#64748b);}
+.p3-avatar{background:linear-gradient(135deg,#d97706,#b45309);}
+.podium-name{font-weight:800;font-size:15px;text-align:center;}
+.podium-kills{font-size:13px;color:var(--purple2);font-weight:600;}
+.podium-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:3px 12px;border-radius:0 0 8px 8px;}
+.pb1{background:rgba(251,191,36,0.9);color:#000;}
+.pb2{background:rgba(148,163,184,0.9);color:#000;}
+.pb3{background:rgba(180,83,9,0.9);color:#fff;}
+.search-bar{display:flex;gap:10px;justify-content:center;padding:0 48px 30px;}
+.search-input{padding:11px 18px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:#fff;font-family:'Exo 2',sans-serif;font-size:14px;outline:none;min-width:280px;transition:border-color .2s;}
+.search-input:focus{border-color:var(--purple2);}
+.search-input::placeholder{color:#475569;}
+.lb-wrapper{max-width:900px;margin:0 auto;padding:0 48px 80px;}
+.lb-table{width:100%;border-collapse:collapse;}
+.lb-table thead tr{border-bottom:1px solid var(--border);}
+.lb-table th{padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#475569;text-align:left;}
+.lb-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);}
+.lb-row-el:hover{background:rgba(255,255,255,0.03);}
+.rank-cell{display:flex;align-items:center;gap:6px;font-weight:800;font-size:15px;}
+.rank-badge{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;}
+.r-gold{background:rgba(251,191,36,0.15);color:#fbbf24;}
+.r-silver{background:rgba(148,163,184,0.15);color:#94a3b8;}
+.r-bronze{background:rgba(180,83,9,0.15);color:#d97706;}
+.r-normal{background:rgba(255,255,255,0.04);color:#64748b;}
+.player-cell{display:flex;align-items:center;gap:10px;}
+.player-av{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(124,58,237,0.2);}
+.player-name{font-weight:700;font-size:14px;}
+.player-title{font-size:11px;color:#64748b;margin-top:1px;}
+.kills-cell{font-weight:700;color:var(--purple2);}
+.kdr-cell{color:#64748b;font-size:13px;}
+.bar-cell{width:120px;}
+.mini-bar{height:4px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;}
+.mini-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple2));border-radius:2px;}
+footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-text{font-size:12px;color:#475569;line-height:1.6;}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-size:12px;color:#475569;text-decoration:none;}
+.footer-links a:hover{color:#a78bfa;}
 </style>
-
 </head>
 <body>
-
 <nav>
-    <div class="logo">SPEARZ <span>FFA</span></div>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="shop.html">Shop</a>
-        <a href="discord.html">Discord</a>
-        <a href="support.html">Support</a>
-    </div>
+  <div class="logo"><span class="logo-main">SPEARZ</span><span class="logo-sub">FFA</span></div>
+  <div class="nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="store.html">🛒 Store</a>
+    <a href="leaderboard.html" class="active">🏆 Leaderboards</a>
+    <a href="discord.html">💬 Discord</a>
+    <a href="support.html">🛠 Support</a>
+  </div>
+  <div><a href="store.html" class="btn-nav">Join Server</a></div>
 </nav>
-
-<h1 class="hero">Leaderboard</h1>
-
-<table>
-<tr><th>#</th><th>Name</th><th>Kills</th></tr>
-<tr><td>1</td><td>NotSpearz</td><td>12,456</td></tr>
-<tr><td>2</td><td>Tryh4rd</td><td>9,876</td></tr>
-<tr><td>3</td><td>ComboKing</td><td>8,765</td></tr>
-<tr><td>4</td><td>Player4</td><td>7,120</td></tr>
-<tr><td>5</td><td>Player5</td><td>6,900</td></tr>
-<tr><td>6</td><td>Player6</td><td>6,400</td></tr>
-<tr><td>7</td><td>Player7</td><td>5,800</td></tr>
-<tr><td>8</td><td>Player8</td><td>5,200</td></tr>
-<tr><td>9</td><td>Player9</td><td>4,900</td></tr>
-<tr><td>10</td><td>Player10</td><td>4,300</td></tr>
-</table>
-
-<footer>Leaderboard</footer>
-
+<div class="page-header">
+  <div class="page-label">Spearz FFA</div>
+  <div class="page-title">Top Players</div>
+</div>
+<div class="podium">
+  <div class="podium-item podium-2"><div class="podium-badge pb2">#2</div><div class="podium-avatar p2-avatar">🔥</div><div class="podium-name">Tryh4rd</div><div class="podium-kills">9,876 kills</div></div>
+  <div class="podium-item podium-1"><div class="podium-badge pb1">#1</div><div class="podium-crown">👑</div><div class="podium-avatar p1-avatar">🗡️</div><div class="podium-name">NotSpearz</div><div class="podium-kills">12,456 kills</div></div>
+  <div class="podium-item podium-3"><div class="podium-badge pb3">#3</div><div class="podium-avatar p3-avatar">💀</div><div class="podium-name">ComboKing</div><div class="podium-kills">8,765 kills</div></div>
+</div>
+<div class="search-bar">
+  <input class="search-input" type="text" placeholder="🔍 Search player..." id="searchInput" oninput="filterTable()">
+</div>
+<div class="lb-wrapper">
+  <table class="lb-table">
+    <thead><tr><th>Rank</th><th>Player</th><th>Kills</th><th>K/D</th><th>Progress</th></tr></thead>
+    <tbody id="lbBody"></tbody>
+  </table>
+</div>
+<footer>
+  <div class="logo"><span class="logo-main">SPEARZ</span><span class="logo-sub">FFA</span></div>
+  <div class="footer-text">© 2024 Spearz FFA. All rights reserved.</div>
+  <div class="footer-links"><a href="index.html">Home</a><a href="store.html">Store</a><a href="discord.html">Discord</a></div>
+</footer>
+<script>
+const players=[
+  {rank:1,name:'NotSpearz',title:'Server Owner',icon:'🗡️',kills:12456,kd:4.2},
+  {rank:2,name:'Tryh4rd',title:'Elite Fighter',icon:'🔥',kills:9876,kd:3.8},
+  {rank:3,name:'ComboKing',title:'PvP Legend',icon:'💀',kills:8765,kd:3.5},
+  {rank:4,name:'BannedFromMC',title:'Tryhard',icon:'⚔️',kills:7654,kd:2.9},
+  {rank:5,name:'SpearzLegend',title:'Veteran',icon:'🎯',kills:6543,kd:2.7},
+  {rank:6,name:'NightBlade',title:'Shadow Warrior',icon:'🌑',kills:6120,kd:2.5},
+  {rank:7,name:'Rimpeltje',title:'Co-Owner',icon:'🛡️',kills:5820,kd:2.3},
+  {rank:8,name:'FastClick',title:'CPS Monster',icon:'⚡',kills:5411,kd:2.2},
+  {rank:9,name:'ViperStrike',title:'Combo King',icon:'🐍',kills:4980,kd:2.0},
+  {rank:10,name:'ProPvPer',title:'Skilled Fighter',icon:'🏹',kills:4300,kd:1.9},
+  {rank:11,name:'LegacyKid',title:'Rising Star',icon:'🌟',kills:3877,kd:1.7},
+  {rank:12,name:'ArcticFox',title:'Swift',icon:'🦊',kills:3540,kd:1.6},
+  {rank:13,name:'GhostPing',title:'Low Ping',icon:'👻',kills:3210,kd:1.5},
+  {rank:14,name:'PixelRush',title:'Grinder',icon:'🎮',kills:2890,kd:1.4},
+  {rank:15,name:'DarkMatter',title:'Newcomer',icon:'🔮',kills:2440,kd:1.2},
+];
+const maxKills=players[0].kills;
+function renderCls(r){if(r===1)return'r-gold';if(r===2)return'r-silver';if(r===3)return'r-bronze';return'r-normal';}
+function renderRows(data){
+  document.getElementById('lbBody').innerHTML=data.map(p=>`
+    <tr class="lb-row-el">
+      <td><div class="rank-cell"><div class="rank-badge ${renderCls(p.rank)}">${p.rank}</div></div></td>
+      <td><div class="player-cell"><div class="player-av">${p.icon}</div><div><div class="player-name">${p.name}</div><div class="player-title">${p.title}</div></div></div></td>
+      <td class="kills-cell">${p.kills.toLocaleString()}</td>
+      <td class="kdr-cell">${p.kd}</td>
+      <td class="bar-cell"><div class="mini-bar"><div class="mini-fill" style="width:${(p.kills/maxKills*100).toFixed(1)}%"></div></div></td>
+    </tr>`).join('');
+}
+function filterTable(){const q=document.getElementById('searchInput').value.toLowerCase();renderRows(players.filter(p=>p.name.toLowerCase().includes(q)));}
+renderRows(players);
+</script>
 </body>
 </html>
