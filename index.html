@@ -1,25 +1,103 @@
-<a href="index.html">Home</a>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Spearz FFA - Home</title>
+
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+  background: radial-gradient(circle at top,#0b1026,#050611);
+  color:white;
+}
+
+nav {
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+  background:#0d0f1f;
+  border-bottom:1px solid #2a2f55;
+  position:sticky;
+  top:0;
+}
+
+nav a {
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+nav a:hover {
+  color:#22d3ee;
+  opacity:1;
+}
+
+.hero {
+  text-align:center;
+  padding:120px 20px;
+}
+
+.hero h1 {
+  font-size:70px;
+  background: linear-gradient(90deg,#4f46e5,#22d3ee,#ec4899);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.btn {
+  padding:12px 20px;
+  margin:10px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background: linear-gradient(90deg,#4f46e5,#ec4899);
+  color:white;
+}
+
+.section {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  padding:50px;
+}
+
+.card {
+  background:#11162b;
+  padding:20px;
+  border-radius:12px;
+  border:1px solid #2a2f55;
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+  <div><b>SPEARZ FFA</b></div>
+  <div>
+    <a href="index.html">Home</a>
     <a href="store.html">Store</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="discord.html">Discord</a>
     <a href="support.html">Support</a>
   </div>
-</div>
+</nav>
 
 <div class="hero">
-  <h1>Welcome to Spearz</h1>
-  <p>Minecraft Network • PvP • Survival • Events</p>
-  <a class="btn" href="store.html">Enter Store</a>
+  <h1>SPEARZ FFA</h1>
+  <p>Neon PvP • Fast fights • Ranked system</p>
+  <button class="btn">Join Server</button>
+  <button class="btn" onclick="window.location.href='store.html'">Store</button>
 </div>
 
-<div class="container">
-  <div class="card"><h3>🔥 PvP</h3><p>Competitive fights</p></div>
-  <div class="card"><h3>🌍 Survival</h3><p>Economy + shops</p></div>
-  <div class="card"><h3>🏆 Events</h3><p>Weekly tournaments</p></div>
+<div class="section">
+  <div class="card">⚔ Fast PvP</div>
+  <div class="card">🏆 Ranked System</div>
+  <div class="card">🎁 Daily Rewards</div>
 </div>
 
-<div class="footer">© 2026 Spearz Network</div>
-
-<script src="script.js"></script>
 </body>
 </html>
