@@ -1,32 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Store</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Store</title>
+
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+  background:#050611;
+  color:white;
+}
+
+nav {
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  background:#0d0f1f;
+}
+
+nav a {
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+}
+
+nav a:hover {
+  color:#22d3ee;
+}
+
+.store {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:50px;
+}
+
+.card {
+  background:#11162b;
+  padding:20px;
+  border-radius:12px;
+  border:1px solid #2a2f55;
+  text-align:center;
+  width:200px;
+}
+
+.price {
+  color:#22d3ee;
+}
+
+button {
+  background:linear-gradient(90deg,#4f46e5,#ec4899);
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+}
+</style>
+
 </head>
 <body>
 
-<div class="navbar">
-  <div class="logo">⚡ Store</div>
-  <div class="links">
+<nav>
+  <div><b>STORE</b></div>
+  <div>
     <a href="index.html">Home</a>
     <a href="store.html">Store</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="discord.html">Discord</a>
     <a href="support.html">Support</a>
   </div>
+</nav>
+
+<h1 style="text-align:center;">STORE</h1>
+
+<div class="store">
+
+  <div class="card">
+    <h3>Ultimate Rank</h3>
+    <p class="price">€19.99</p>
+    <button>Buy</button>
+  </div>
+
+  <div class="card">
+    <h3>Crate</h3>
+    <p class="price">€4.99</p>
+    <button>Buy</button>
+  </div>
+
+  <div class="card">
+    <h3>Key</h3>
+    <p class="price">€1.99</p>
+    <button>Buy</button>
+  </div>
+
 </div>
 
-<div class="hero">
-  <h1>Server Store</h1>
-</div>
-
-<div class="container">
-  <div class="card"><h3>VIP</h3><p>€5</p></div>
-  <div class="card"><h3>MVP</h3><p>€10</p></div>
-  <div class="card"><h3>Legend</h3><p>€20</p></div>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
