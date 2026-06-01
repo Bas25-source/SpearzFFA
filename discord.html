@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Discord</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Discord</title>
+
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+  background:#050611;
+  color:white;
+  text-align:center;
+}
+
+button {
+  margin-top:100px;
+  padding:15px 25px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(90deg,#4f46e5,#ec4899);
+  color:white;
+  cursor:pointer;
+}
+</style>
+
 </head>
 <body>
 
-<div class="navbar">
-  <div class="logo">💬 Discord</div>
-  <div class="links">
-    <a href="index.html">Home</a>
-    <a href="store.html">Store</a>
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="discord.html">Discord</a>
-    <a href="support.html">Support</a>
-  </div>
-</div>
+<h1>Join Discord</h1>
+<p>Updates & community</p>
 
-<div class="hero">
-  <h1>Join Discord</h1>
-  <p>Community & updates</p>
-  <a class="btn">Join Now</a>
-</div>
+<button onclick="window.location.href='https://discord.gg/'">
+Join Discord
+</button>
 
-<script src="script.js"></script>
 </body>
 </html>
