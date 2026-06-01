@@ -3,133 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spearz FFA - Home</title>
-
+<title>Spearz FFA – Dominate the Arena</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Bebas+Neue&family=Exo+2:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-
-  /* FIXED BACKGROUND */
-  background-image: url('SpearzFFA.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
+:root {
+  --bg: #060810;
+  --bg2: #080b16;
+  --purple: #7c3aed;
+  --purple2: #a855f7;
+  --cyan: #06b6d4;
+  --pink: #ec4899;
+  --neon-purple: #b517ff;
+  --neon-blue: #4cc9f0;
+  --card-bg: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.07);
+  --text: #e2e8f0;
+  --muted: #64748b;
 }
-
-/* NAV */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: rgba(13, 15, 31, 0.9);
-  border-bottom: 1px solid #2a2f55;
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(6px);
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Exo 2',sans-serif;overflow-x:hidden;}
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:64px;
+  background:rgba(6,8,16,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100;
 }
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-  opacity: 0.8;
+.logo{display:flex;flex-direction:column;line-height:1;}
+.logo-main{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;
+  background:linear-gradient(90deg,#fff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo-sub{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--neon-purple);}
+.nav-links{display:flex;gap:4px;}
+.nav-links a{
+  color:#94a3b8;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  padding:8px 14px;border-radius:6px;transition:all .2s;position:relative;
 }
-
-nav a:hover {
-  color: #22d3ee;
-  opacity: 1;
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(124,58,237,0.15);}
+.nav-links a.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:2px;background:var(--purple2);border-radius:2px;}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.btn-nav{
+  padding:9px 20px;border-radius:8px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;
+  font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;
+  background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;
+  box-shadow:0 0 20px rgba(168,85,247,0.4);transition:all .3s;
 }
-
-/* LOGO */
-.logo {
-  position: absolute;
-  top: 15px;
-  left: 15px;
+.btn-nav:hover{box-shadow:0 0 30px rgba(168,85,247,0.7);transform:translateY(-1px);}
+.hero{
+  position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:80px 20px;overflow:hidden;z-index:1;
 }
-
-.logo img {
-  height: 70px;
-  width: auto;
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 50%,rgba(99,40,200,0.25) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 50%,rgba(168,85,247,0.2) 0%,transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,182,212,0.1) 0%,transparent 60%),
+    linear-gradient(180deg,#080b16 0%,#060810 100%);
+  z-index:-1;
 }
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 120px 20px;
-}
-
-.hero h1 {
-  font-size: 70px;
-  background: linear-gradient(90deg,#4f46e5,#22d3ee,#ec4899);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.btn {
-  padding: 12px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background: linear-gradient(90deg,#4f46e5,#ec4899);
-  color: white;
-}
-
-/* CARDS */
-.section {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 50px;
-}
-
-.card {
-  background: rgba(17, 22, 43, 0.85);
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #2a2f55;
-}
-</style>
-
-</head>
-
-<body>
-
-<!-- LOGO -->
-<div class="logo">
-  <img src="logo.png" alt="Logo">
-</div>
-
-<!-- NAV -->
-<nav>
-  <div><b>SPEARZ FFA</b></div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="store.html">Store</a>
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="discord.html">Discord</a>
-    <a href="support.html">Support</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <h1>SPEARZ FFA</h1>
-  <p>Spearmace PvP • Custom weapons/kits • Custom map</p>
-  <button class="btn">Join Server</button>
-  <button class="btn" onclick="window.location.href='store.html'">Store</button>
-</div>
-
-<!-- SECTION -->
-<div class="section">
-  <div class="card">⚔ Spearmace FFA</div>
-  <div class="card">🏆 Leaderboards</div>
-  <div class="card">🎁 Daily Rewards</div>
-</div>
-
-</body>
-</html>
+.hero-bg::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237c3aed' fill-opacity='0.03'%3
