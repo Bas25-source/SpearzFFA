@@ -1,32 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Leaderboard</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Leaderboard</title>
+
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+  background:#050611;
+  color:white;
+}
+
+nav {
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  background:#0d0f1f;
+}
+
+nav a {
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+}
+
+table {
+  width:70%;
+  margin:60px auto;
+  border-collapse:collapse;
+}
+
+td,th {
+  padding:15px;
+  border-bottom:1px solid #2a2f55;
+  text-align:center;
+}
+
+th {
+  color:#22d3ee;
+}
+</style>
+
 </head>
 <body>
 
-<div class="navbar">
-  <div class="logo">🏆 Leaderboard</div>
-  <div class="links">
+<nav>
+  <div><b>LEADERBOARD</b></div>
+  <div>
     <a href="index.html">Home</a>
     <a href="store.html">Store</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="discord.html">Discord</a>
     <a href="support.html">Support</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
-  <h1>Top Players</h1>
-</div>
+<h1 style="text-align:center;">LEADERBOARD</h1>
 
-<div class="container">
-  <div class="card"><h3>#1 Player</h3><p>2500 Wins</p></div>
-  <div class="card"><h3>#2 Player</h3><p>2100 Wins</p></div>
-  <div class="card"><h3>#3 Player</h3><p>1800 Wins</p></div>
-</div>
+<table>
+<tr><th>Rank</th><th>Name</th><th>Kills</th></tr>
+<tr><td>#1</td><td>NotSpearz</td><td>12456</td></tr>
+<tr><td>#2</td><td>Tryhard</td><td>9876</td></tr>
+<tr><td>#3</td><td>ComboKing</td><td>8765</td></tr>
+</table>
 
-<script src="script.js"></script>
 </body>
 </html>
