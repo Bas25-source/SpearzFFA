@@ -1,102 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-<title>Spearz FFA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spearz FFA - Home</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at top, #0b0f1a, #05070d);
-    color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+
+  /* FIXED BACKGROUND */
+  background-image: url('SpearzFFA.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 /* NAV */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 50px;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(13, 15, 31, 0.9);
+  border-bottom: 1px solid #2a2f55;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(6px);
 }
 
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+nav a:hover {
+  color: #22d3ee;
+  opacity: 1;
+}
+
+/* LOGO */
 .logo {
-    font-size: 20px;
-    font-weight: bold;
+  position: absolute;
+  top: 15px;
+  left: 15px;
 }
 
-.logo span { color: #7c4dff; }
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
-    color: #bbb;
-    text-decoration: none;
-}
-
-.nav-links a:hover { color: white; }
-
-.btn {
-    padding: 8px 14px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    background: linear-gradient(45deg, #6a00ff, #b300ff);
-    color: white;
-    font-weight: bold;
+.logo img {
+  height: 70px;
+  width: auto;
 }
 
 /* HERO */
 .hero {
-    text-align: center;
-    padding: 100px 20px;
+  text-align: center;
+  padding: 120px 20px;
 }
 
 .hero h1 {
-    font-size: 80px;
-    background: linear-gradient(90deg, #4cc9f0, #b517ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-size: 70px;
+  background: linear-gradient(90deg,#4f46e5,#22d3ee,#ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-.hero p {
-    color: #aaa;
+.btn {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(90deg,#4f46e5,#ec4899);
+  color: white;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #666;
+/* CARDS */
+.section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 50px;
+}
+
+.card {
+  background: rgba(17, 22, 43, 0.85);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #2a2f55;
 }
 </style>
 
 </head>
+
 <body>
 
-<nav>
-    <div class="logo">SPEARZ <span>FFA</span></div>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="shop.html">Shop</a>
-        <a href="discord.html">Discord</a>
-        <a href="support.html">Support</a>
-    </div>
-    <button class="btn">Join Server</button>
-</nav>
-
-<div class="hero">
-    <h1>SPEARZ FFA</h1>
-    <p>Fast paced • Skill based • Non stop action</p>
+<!-- LOGO -->
+<div class="logo">
+  <img src="logo.png" alt="Logo">
 </div>
 
-<footer>© Spearz FFA</footer>
+<!-- NAV -->
+<nav>
+  <div><b>SPEARZ FFA</b></div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="store.html">Store</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="discord.html">Discord</a>
+    <a href="support.html">Support</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>SPEARZ FFA</h1>
+  <p>Spearmace PvP • Custom weapons/kits • Custom map</p>
+  <button class="btn">Join Server</button>
+  <button class="btn" onclick="window.location.href='store.html'">Store</button>
+</div>
+
+<!-- SECTION -->
+<div class="section">
+  <div class="card">⚔ Spearmace FFA</div>
+  <div class="card">🏆 Leaderboards</div>
+  <div class="card">🎁 Daily Rewards</div>
+</div>
 
 </body>
 </html>
