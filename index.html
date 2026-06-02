@@ -169,7 +169,7 @@ nav{
 .btn-view-all:hover{border-color:var(--purple2);color:#fff;}
 .discord-card{background:rgba(88,101,242,0.1);border:1px solid rgba(88,101,242,0.2);border-radius:12px;padding:16px;margin-bottom:14px;}
 .discord-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.discord-icon{width:40px;height:40px;background:#5865f2;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.discord-head img{width:40px;height:40px;border-radius:10px;object-fit:cover;}
 .discord-name{font-weight:700;font-size:14px;}
 .discord-link{font-size:12px;color:#64748b;}
 .discord-channels{display:flex;flex-direction:column;gap:4px;}
@@ -265,7 +265,13 @@ footer{
   <div class="panel">
     <div class="panel-header"><span class="panel-title">💬 Discord Community</span><span class="status-online"><span class="status-dot"></span> 250+ Online</span></div>
     <div class="discord-card">
-      <div class="discord-head"><img src="spearzffa.png"><div><div class="discord-name">Spearz FFA</div><div class="discord-link">https://discord.gg/bDwMnY7Z7</div></div></div>
+      <div class="discord-head">
+        <img src="spearzffa.png" alt="Spearz FFA">
+        <div>
+          <div class="discord-name">Spearz FFA</div>
+          <div class="discord-link">https://discord.gg/bDwMnY7Z7</div>
+        </div>
+      </div>
       <div class="discord-channels">
         <div class="dc-ch"># announcements <span>NEW</span></div>
         <div class="dc-ch"># updates</div>
@@ -288,10 +294,10 @@ footer{
   <div class="footer-text">© 2026 Spearz FFA. All rights reserved.<br>This server is not affiliated with Mojang AB.</div>
   <div class="footer-links"><a href="store.html">Store</a><a href="support.html">Support</a><a href="discord.html">Discord</a></div>
   <div class="footer-socials">
-    <a class="social-btn" href="discord.html"><a href="🌐"</a>
-    <a class="social-btn" href="instagamspearz"><a href="📸"</a>
-    <a class="social-btn" href="tiktokspearz"><a href="【ꚠ】"</a>
-    <a class="social-btn" href="youtubespearz"><a href="▶️"</a>
+    <a class="social-btn" href="discord.html">🌐</a>
+    <a class="social-btn" href="instagamspearz">📸</a>
+    <a class="social-btn" href="tiktokspearz">【ꚠ】</a>
+    <a class="social-btn" href="youtubespearz">▶️</a>
   </div>
 </footer>
 <script>
