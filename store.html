@@ -10,6 +10,7 @@
   --bg: #060810; --purple: #7c3aed; --purple2: #a855f7;
   --neon-purple: #b517ff; --neon-blue: #4cc9f0;
   --border: rgba(255,255,255,0.07); --text: #e2e8f0;
+  --discord: #5865F2; --discord-hover: #4752c4;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'Exo 2',sans-serif;overflow-x:hidden;}
@@ -72,15 +73,10 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px
 .cart-footer{padding:20px 24px;border-top:1px solid var(--border);}
 .cart-total{display:flex;justify-content:space-between;font-size:16px;font-weight:700;margin-bottom:16px;}
 .cart-total-price{color:var(--purple2);}
-.btn-checkout{width:100%;padding:14px;border-radius:10px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;box-shadow:0 0 20px rgba(168,85,247,0.4);transition:all .3s;}
-.btn-checkout:hover{box-shadow:0 0 40px rgba(168,85,247,0.7);}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
-.modal-overlay.open{display:flex;}
-.modal{background:#0e1120;border:1px solid rgba(124,58,237,0.3);border-radius:20px;padding:40px;max-width:420px;width:100%;text-align:center;box-shadow:0 0 60px rgba(124,58,237,0.2);}
-.modal-icon{font-size:60px;margin-bottom:16px;}
-.modal h3{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;margin-bottom:8px;}
-.modal p{color:#64748b;font-size:14px;line-height:1.6;margin-bottom:24px;}
-.btn-modal{padding:12px 28px;border-radius:8px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;margin:6px;}
+.btn-discord-ticket{width:100%;padding:14px;border-radius:10px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;background:var(--discord);color:#fff;box-shadow:0 0 20px rgba(88,101,242,0.5);transition:all .3s;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;}
+.btn-discord-ticket:hover{background:var(--discord-hover);box-shadow:0 0 40px rgba(88,101,242,0.8);transform:translateY(-1px);}
+.btn-discord-ticket svg{width:20px;height:20px;flex-shrink:0;}
+.cart-ticket-info{font-size:11px;color:#475569;text-align:center;margin-top:10px;line-height:1.5;}
 footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
 .footer-text{font-size:12px;color:#475569;line-height:1.6;}
 .footer-links{display:flex;gap:20px;}
@@ -123,15 +119,20 @@ footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:32p
   <div class="cart-items" id="cartItems"><div class="cart-empty">🛒 Your cart is empty</div></div>
   <div class="cart-footer">
     <div class="cart-total"><span>Total</span><span class="cart-total-price" id="cartTotal">€0.00</span></div>
-    <button class="btn-checkout" onclick="checkout()">💳 Checkout</button>
-  </div>
-</div>
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <div class="modal-icon">✅</div>
-    <h3>Order Placed!</h3>
-    <p>Thank you for your purchase! Your items will be delivered to your Minecraft account within a few minutes after joining the server.</p>
-    <button class="btn-modal" onclick="closeModal()">Back to Store</button>
+    
+      class="btn-discord-ticket"
+      id="discordTicketBtn"
+      href="https://discord.com/channels/1256165222675120220/1509904037695197316"
+      target="_blank"
+      rel="noopener noreferrer"
+      onclick="handleTicketClick(event)"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/>
+      </svg>
+      Open een Ticket
+    </a>
+    <div class="cart-ticket-info">Je wordt doorgestuurd naar ons Discord ticket kanaal om je bestelling te plaatsen.</div>
   </div>
 </div>
 <footer>
@@ -140,6 +141,7 @@ footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:32p
   <div class="footer-links"><a href="index.html">Home</a><a href="support.html">Support</a><a href="discord.html">Discord</a></div>
 </footer>
 <script>
+const DISCORD_TICKET_URL = 'https://discord.com/channels/1256165222675120220/1509904037695197316';
 const products = [
   {id:1,name:'Ultimate Rank',cat:'ranks',badge:'popular',icon:'👑',price:19.99,old:29.99,perks:['All perks and kits','Exclusive cosmetics','Priority in queues']},
   {id:2,name:'Spearz Crate',cat:'crates',badge:'bestseller',icon:'📦',price:4.99,old:null,perks:['Random rewards','High tier items','Exclusive drops']},
@@ -203,8 +205,13 @@ function updateCart() {
 }
 function openCart(){document.getElementById('cartOverlay').classList.add('open');document.getElementById('cartSidebar').classList.add('open');}
 function toggleCart(){document.getElementById('cartOverlay').classList.toggle('open');document.getElementById('cartSidebar').classList.toggle('open');}
-function checkout(){if(cart.length===0)return;cart=[];updateCart();document.getElementById('cartOverlay').classList.remove('open');document.getElementById('cartSidebar').classList.remove('open');document.getElementById('modalOverlay').classList.add('open');}
-function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
+function handleTicketClick(e) {
+  if(cart.length === 0) {
+    e.preventDefault();
+    alert('Voeg eerst een item toe aan je winkelwagen!');
+    return;
+  }
+}
 renderShop('all');
 </script>
 </body>
