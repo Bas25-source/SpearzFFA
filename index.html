@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spearz FFA – Dominate the Arena</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Bebas+Neue&family=Exo+2:wght@400;600;800;900&display=swap" rel="stylesheet">
+
 <style>
 :root {
   --bg: #060810;
@@ -20,196 +22,378 @@
   --text: #e2e8f0;
   --muted: #64748b;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Exo 2',sans-serif;overflow-x:hidden;}
-#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Exo 2',sans-serif;
+  overflow-x:hidden;
+}
+
+#particles{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+
 nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 48px;
+  height:64px;
   background:rgba(6,8,16,0.85);
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:100;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
-.logo{display:flex;flex-direction:column;line-height:1;}
-.logo-main{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;
-  background:linear-gradient(90deg,#fff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.logo-sub{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--neon-purple);}
-.nav-links{display:flex;gap:4px;}
+
+.logo{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
+
+.logo-main{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:26px;
+  letter-spacing:3px;
+  background:linear-gradient(90deg,#fff,#a78bfa);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.logo-sub{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:14px;
+  letter-spacing:4px;
+  color:var(--neon-purple);
+}
+
+.nav-links{
+  display:flex;
+  gap:4px;
+}
+
 .nav-links a{
-  color:#94a3b8;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
-  padding:8px 14px;border-radius:6px;transition:all .2s;position:relative;
+  color:#94a3b8;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  padding:8px 14px;
+  border-radius:6px;
+  transition:all .2s;
+  position:relative;
 }
-.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(124,58,237,0.15);}
-.nav-links a.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:2px;background:var(--purple2);border-radius:2px;}
-.nav-right{display:flex;align-items:center;gap:10px;}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#fff;
+  background:rgba(124,58,237,0.15);
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
 .btn-nav{
-  padding:9px 20px;border-radius:8px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;
-  font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;
-  background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;
-  box-shadow:0 0 20px rgba(168,85,247,0.4);transition:all .3s;
+  padding:9px 20px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-family:'Exo 2',sans-serif;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-decoration:none;
+  background:linear-gradient(135deg,#6d28d9,#a855f7);
+  color:#fff;
+  box-shadow:0 0 20px rgba(168,85,247,0.4);
+  transition:all .3s;
 }
-.btn-nav:hover{box-shadow:0 0 30px rgba(168,85,247,0.7);transform:translateY(-1px);}
+
 .hero{
-  position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:80px 20px;overflow:hidden;z-index:1;
+  position:relative;
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px;
+  overflow:hidden;
+  z-index:1;
 }
+
 .hero-bg{
-  position:absolute;inset:0;
+  position:absolute;
+  inset:0;
   background:
     radial-gradient(ellipse 60% 50% at 20% 50%,rgba(99,40,200,0.25) 0%,transparent 60%),
     radial-gradient(ellipse 60% 50% at 80% 50%,rgba(168,85,247,0.2) 0%,transparent 60%),
-    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,182,212,0.1) 0%,transparent 60%),
     linear-gradient(180deg,#080b16 0%,#060810 100%);
   z-index:-1;
 }
-.hero-bg::before{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237c3aed' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);
-  padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:2px;
-  color:#a78bfa;text-transform:uppercase;margin-bottom:24px;
-}
-.hero-badge::before{content:'⚡';}
+
 .hero h1{
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(70px,12vw,140px);
-  line-height:.9;letter-spacing:4px;
+  line-height:.9;
+  letter-spacing:4px;
   background:linear-gradient(135deg,#fff 0%,#c4b5fd 40%,var(--neon-purple) 70%,var(--pink) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 40px rgba(181,23,255,0.3));
-  animation:heroGlow 3s ease-in-out infinite alternate;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
-@keyframes heroGlow{
-  from{filter:drop-shadow(0 0 30px rgba(181,23,255,0.3));}
-  to{filter:drop-shadow(0 0 60px rgba(76,201,240,0.4));}
-}
+
 .hero-sub{
-  font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,5vw,56px);
-  letter-spacing:8px;color:var(--neon-blue);margin-top:-8px;
-  text-shadow:0 0 30px rgba(76,201,240,0.6);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(30px,5vw,56px);
+  letter-spacing:8px;
+  color:var(--neon-blue);
 }
-.hero-desc{color:#94a3b8;font-size:16px;max-width:480px;margin:20px auto 0;line-height:1.7;}
-.hero-desc strong{color:#c4b5fd;}
-.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px;}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;border-radius:10px;border:none;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;
-  text-decoration:none;color:#fff;
-  background:linear-gradient(135deg,#6d28d9,#a855f7);
-  box-shadow:0 0 30px rgba(168,85,247,0.5);transition:all .3s;
+
+.hero-desc{
+  color:#94a3b8;
+  font-size:16px;
+  max-width:480px;
+  margin:20px auto 0;
+  line-height:1.7;
 }
-.btn-primary:hover{box-shadow:0 0 50px rgba(168,85,247,0.8);transform:translateY(-2px);}
+
+.hero-ctas{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:36px;
+}
+
+.btn-primary,
 .btn-secondary{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;border-radius:10px;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;
-  text-decoration:none;color:#fff;
-  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);transition:all .3s;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 28px;
+  border-radius:10px;
+  cursor:pointer;
+  font-family:'Exo 2',sans-serif;
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:#fff;
 }
-.btn-secondary:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);}
-.features-bar{
-  display:flex;justify-content:center;flex-wrap:wrap;gap:0;
-  background:rgba(255,255,255,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  position:relative;z-index:1;
+
+.btn-primary{
+  background:linear-gradient(135deg,#6d28d9,#a855f7);
 }
-.feature-item{
-  display:flex;align-items:center;gap:12px;
-  padding:22px 32px;border-right:1px solid var(--border);
-  flex:1;min-width:160px;max-width:220px;
+
+.btn-secondary{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.15);
 }
-.feature-item:last-child{border-right:none;}
-.feature-icon{font-size:24px;filter:drop-shadow(0 0 8px rgba(124,58,237,0.8));}
-.feature-title{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;}
-.feature-desc{font-size:11px;color:#64748b;margin-top:2px;}
-.section{padding:80px 48px;position:relative;z-index:1;}
-.section-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--purple2);margin-bottom:8px;text-align:center;}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,52px);letter-spacing:3px;text-align:center;margin-bottom:40px;color:#fff;}
-.section-title span{background:linear-gradient(90deg,var(--neon-blue),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.panels{display:grid;grid-template-columns:1fr 2fr 1.5fr;gap:20px;padding:0 48px 80px;position:relative;z-index:1;}
-@media(max-width:900px){.panels{grid-template-columns:1fr;}}
-.panel{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:16px;padding:24px;}
-.panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);}
-.panel-title{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;}
-.status-online{display:flex;align-items:center;gap:6px;font-size:12px;color:#4ade80;font-weight:600;}
-.status-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;box-shadow:0 0 8px #4ade80;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-.server-info{display:flex;flex-direction:column;gap:12px;}
-.server-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;}
-.server-row .label{color:#64748b;}
-.server-row .value{color:#fff;font-weight:600;}
-.progress-bar{height:6px;background:rgba(255,255,255,0.07);border-radius:3px;margin-top:6px;overflow:hidden;}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple2));border-radius:3px;}
+
+.panels{
+  display:grid;
+  grid-template-columns:1fr 2fr 1.5fr;
+  gap:20px;
+  padding:0 48px 80px;
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:900px){
+  .panels{
+    grid-template-columns:1fr;
+  }
+}
+
+.panel{
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:24px;
+}
+
+.panel-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--border);
+}
+
+.panel-title{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#fff;
+}
+
+.status-online{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+  color:#4ade80;
+  font-weight:600;
+}
+
+.status-dot{
+  width:8px;
+  height:8px;
+  background:#4ade80;
+  border-radius:50%;
+  box-shadow:0 0 8px #4ade80;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{opacity:1;}
+  50%{opacity:.4;}
+}
+
+.server-info{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.server-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+}
+
+.server-row .label{
+  color:#64748b;
+}
+
+.server-row .value{
+  color:#fff;
+  font-weight:600;
+}
+
+.progress-bar{
+  height:6px;
+  background:rgba(255,255,255,0.07);
+  border-radius:3px;
+  margin-top:6px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--purple),var(--purple2));
+  border-radius:3px;
+  width:0%;
+  transition:width .5s ease;
+}
+
 .btn-join{
-  width:100%;margin-top:20px;padding:12px;border-radius:8px;border:none;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;
-  background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;
-  box-shadow:0 0 20px rgba(168,85,247,0.4);transition:all .3s;
+  width:100%;
+  margin-top:20px;
+  padding:12px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-family:'Exo 2',sans-serif;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  background:linear-gradient(135deg,#6d28d9,#a855f7);
+  color:#fff;
 }
-.btn-join:hover{box-shadow:0 0 30px rgba(168,85,247,0.7);}
-.lb-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);}
-.lb-row:last-child{border-bottom:none;}
-.lb-rank{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:rgba(255,255,255,0.05);color:#64748b;}
-.lb-rank.gold{background:rgba(251,191,36,0.15);color:#fbbf24;}
-.lb-rank.silver{background:rgba(148,163,184,0.15);color:#94a3b8;}
-.lb-rank.bronze{background:rgba(180,83,9,0.15);color:#d97706;}
-.lb-avatar{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#6d28d9,#a855f7);display:flex;align-items:center;justify-content:center;font-size:14px;}
-.lb-name{flex:1;font-size:13px;font-weight:600;color:#e2e8f0;}
-.lb-kills{font-size:13px;font-weight:700;color:var(--purple2);}
-.btn-view-all{
-  width:100%;margin-top:16px;padding:11px;border-radius:8px;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;
-  background:transparent;color:#94a3b8;border:1px solid var(--border);transition:all .3s;text-decoration:none;display:block;text-align:center;
+
+.discord-card{
+  background:rgba(88,101,242,0.1);
+  border:1px solid rgba(88,101,242,0.2);
+  border-radius:12px;
+  padding:16px;
+  margin-bottom:14px;
 }
-.btn-view-all:hover{border-color:var(--purple2);color:#fff;}
-.discord-card{background:rgba(88,101,242,0.1);border:1px solid rgba(88,101,242,0.2);border-radius:12px;padding:16px;margin-bottom:14px;}
-.discord-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.discord-icon{width:40px;height:40px;background:#5865f2;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
-.discord-name{font-weight:700;font-size:14px;}
-.discord-link{font-size:12px;color:#64748b;}
-.discord-channels{display:flex;flex-direction:column;gap:4px;}
-.dc-ch{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;font-size:13px;color:#94a3b8;}
-.dc-ch:hover{background:rgba(255,255,255,0.05);cursor:pointer;}
-.dc-ch span{font-size:11px;color:#64748b;}
-.online-users{display:flex;gap:-4px;margin:12px 0 8px;}
-.mini-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6d28d9,#ec4899);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:11px;margin-right:-6px;}
-.online-count{font-size:12px;color:#64748b;margin-left:16px;align-self:center;}
+
+.online-users{
+  display:flex;
+  gap:-4px;
+  margin:12px 0 8px;
+}
+
+.mini-avatar{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#6d28d9,#ec4899);
+  border:2px solid var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  margin-right:-6px;
+}
+
+.online-count{
+  font-size:12px;
+  color:#64748b;
+  margin-left:16px;
+  align-self:center;
+}
+
 .btn-discord{
-  width:100%;padding:12px;border-radius:8px;border:none;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;
-  background:#5865f2;color:#fff;transition:all .3s;text-decoration:none;display:block;text-align:center;
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-family:'Exo 2',sans-serif;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  background:#5865f2;
+  color:#fff;
+  text-decoration:none;
+  display:block;
+  text-align:center;
 }
-.btn-discord:hover{background:#4752c4;box-shadow:0 0 20px rgba(88,101,242,0.5);}
-footer{
-  background:rgba(0,0,0,0.4);border-top:1px solid var(--border);
-  padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
-  position:relative;z-index:1;
-}
-.footer-text{font-size:12px;color:#475569;line-height:1.6;}
-.footer-links{display:flex;gap:20px;}
-.footer-links a{font-size:12px;color:#475569;text-decoration:none;transition:color .2s;}
-.footer-links a:hover{color:#a78bfa;}
-.footer-socials{display:flex;gap:10px;}
-.social-btn{
-  width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;
-  text-decoration:none;transition:all .2s;
-}
-.social-btn:hover{background:rgba(124,58,237,0.2);border-color:var(--purple2);}
 </style>
 </head>
+
 <body>
+
 <canvas id="particles"></canvas>
+
 <nav>
   <div class="logo">
     <span class="logo-main">SPEARZ</span>
     <span class="logo-sub">FFA</span>
   </div>
+
   <div class="nav-links">
     <a href="index.html" class="active">🏠 Home</a>
     <a href="store.html">🛒 Store</a>
@@ -217,17 +401,24 @@ footer{
     <a href="discord.html">💬 Discord</a>
     <a href="support.html">🛠 Support</a>
   </div>
+
   <div class="nav-right">
     <a href="store.html" class="btn-nav">Join Server</a>
   </div>
 </nav>
+
 <section class="hero">
   <div class="hero-bg"></div>
+
   <div>
-    <div class="hero-badge">Fast Paced • Skill Based • Non Stop Action</div>
     <h1>SPEARZ</h1>
     <div class="hero-sub">FFA</div>
-    <p class="hero-desc"><strong>Dominate the Arena.</strong><br>Join Spearz FFA and prove you're the best.<br>Climb the leaderboards, unlock rewards and become a legend.</p>
+
+    <p class="hero-desc">
+      Dominate the Arena.<br>
+      Join Spearz FFA and prove you're the best.
+    </p>
+
     <div class="hero-ctas">
       <a href="#" class="btn-primary">⚔️ Join Server</a>
       <a href="store.html" class="btn-secondary">🛒 Store</a>
@@ -235,89 +426,221 @@ footer{
     </div>
   </div>
 </section>
-<div class="features-bar">
-  <div class="feature-item"><span class="feature-icon">⚔️</span><div><div class="feature-title">Custom Kits</div><div class="feature-desc">Unique kits with powerful perks.</div></div></div>
-  <div class="feature-item"><span class="feature-icon">⚡</span><div><div class="feature-title">Fast PvP</div><div class="feature-desc">Optimized for smooth and competitive fights.</div></div></div>
-  <div class="feature-item"><span class="feature-icon">🏆</span><div><div class="feature-title">Ranked System</div><div class="feature-desc">Climb the ranks and show off your skill.</div></div></div>
-  <div class="feature-item"><span class="feature-icon">📅</span><div><div class="feature-title">Daily Events</div><div class="feature-desc">Join events and win exclusive rewards.</div></div></div>
-  <div class="feature-item" style="border-right:none;"><span class="feature-icon">✨</span><div><div class="feature-title">Cosmetics</div><div class="feature-desc">Stand out with cool cosmetics & tags.</div></div></div>
-</div>
+
 <div class="panels">
+
+  <!-- SERVER STATUS -->
   <div class="panel">
-    <div class="panel-header"><span class="panel-title">Server Status</span><span class="status-online"><span class="status-dot"></span> Online</span></div>
-    <div class="server-info">
-      <div class="server-row"><span class="label">IP Address</span><span class="value" style="font-size:12px;color:#a78bfa;">spearzffa.khplay.nl
-</span></div>
-      <div><div class="server-row"><span class="label">Players Online</span><span class="value">243 / 1000</span></div><div class="progress-bar"><div class="progress-fill" style="width:24.3%"></div></div></div>
-      <div class="server-row"><span class="label">Version</span><span class="value">1.21.11</span></div>
-      <div class="server-row"><span class="label">Mode</span><span class="value">FFA PvP</span></div>
+
+    <div class="panel-header">
+      <span class="panel-title">Server Status</span>
+
+      <span class="status-online">
+        <span class="status-dot"></span>
+        Online
+      </span>
     </div>
-    <button class="btn-join" onclick="navigator.clipboard.writeText('spearz.net');this.textContent='✅ Copied!';setTimeout(()=>this.textContent='⚔️ Copy IP & Join',1500)">⚔️ Copy IP & Join</button>
-  </div>
-  <div class="panel">
-    <div class="panel-header"><span class="panel-title">🏅 Top Kills Leaderboard</span></div>
-    <div class="lb-row"><div class="lb-rank gold">1</div><div class="lb-avatar">🗡️</div><div class="lb-name">NotSpearz</div><div class="lb-kills">7000</div></div>
-    <div class="lb-row"><div class="lb-rank silver">2</div><div class="lb-avatar">🔥</div><div class="lb-name">Tryh4rd</div><div class="lb-kills">976</div></div>
-    <div class="lb-row"><div class="lb-rank bronze">3</div><div class="lb-avatar">💀</div><div class="lb-name">ComboKing</div><div class="lb-kills">8765</div></div>
-    <div class="lb-row"><div class="lb-rank">4</div><div class="lb-avatar">⚔️</div><div class="lb-name">BannedFromMC</div><div class="lb-kills">7654</div></div>
-    <div class="lb-row"><div class="lb-rank">5</div><div class="lb-avatar">🎯</div><div class="lb-name">SpearzLegend</div><div class="lb-kills">6543</div></div>
-    <a href="leaderboard.html" class="btn-view-all">View Full Leaderboards →</a>
-  </div>
-  <div class="panel">
-    <div class="panel-header"><span class="panel-title">💬 Discord Community</span><span class="status-online"><span class="status-dot"></span> 205+ Members</span></div>
-    <div class="discord-card">
-      <div class="discord-head"><div class="discord-icon">🎮</div><div><div class="discord-name">Spearz FFA</div><div class="discord-link">discord.gg/spearz</div></div></div>
-      <div class="discord-channels">
-        <div class="dc-ch"># announcements <span>NEW</span></div>
-        <div class="dc-ch"># updates</div>
-        <div class="dc-ch"># general</div>
-        <div class="dc-ch"># media</div>
+
+    <div class="server-info">
+
+      <div class="server-row">
+        <span class="label">IP Address</span>
+        <span class="value" style="font-size:12px;color:#a78bfa;">
+          spearz.net
+        </span>
       </div>
+
+      <div>
+        <div class="server-row">
+          <span class="label">Players Online</span>
+          <span class="value" id="mc-players">Loading...</span>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill" id="mc-bar"></div>
+        </div>
+      </div>
+
+      <div class="server-row">
+        <span class="label">Version</span>
+        <span class="value">1.8 – 1.20.x</span>
+      </div>
+
+      <div class="server-row">
+        <span class="label">Mode</span>
+        <span class="value">FFA PvP</span>
+      </div>
+
+    </div>
+
+    <button
+      class="btn-join"
+      onclick="navigator.clipboard.writeText('spearz.net');this.textContent='✅ Copied!';setTimeout(()=>this.textContent='⚔️ Copy IP & Join',1500)"
+    >
+      ⚔️ Copy IP & Join
+    </button>
+
+  </div>
+
+  <!-- LEADERBOARD -->
+  <div class="panel">
+
+    <div class="panel-header">
+      <span class="panel-title">🏅 Top Kills Leaderboard</span>
+    </div>
+
+    <p>#1 NotSpearz — 12,456 kills</p>
+    <p>#2 Tryh4rd — 9,876 kills</p>
+    <p>#3 ComboKing — 8,765 kills</p>
+
+  </div>
+
+  <!-- DISCORD -->
+  <div class="panel">
+
+    <div class="panel-header">
+      <span class="panel-title">💬 Discord Community</span>
+
+      <span class="status-online">
+        <span class="status-dot"></span>
+        <span id="discord-online">...</span> Online
+      </span>
+    </div>
+
+    <div class="discord-card">
+
+      <h3>Spearz FFA</h3>
+      <p style="color:#64748b;font-size:13px;">
+        discord.gg/spearz
+      </p>
+
       <div class="online-users">
         <div class="mini-avatar">N</div>
-        <div class="mini-avatar" style="background:linear-gradient(135deg,#06b6d4,#3b82f6)">T</div>
-        <div class="mini-avatar" style="background:linear-gradient(135deg,#ec4899,#a855f7)">C</div>
-        <div class="mini-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">S</div>
-        <span class="online-count">250+ Members</span>
+        <div class="mini-avatar">T</div>
+        <div class="mini-avatar">C</div>
+        <div class="mini-avatar">S</div>
+
+        <span class="online-count" id="discord-members-text">
+          Loading...
+        </span>
       </div>
+
     </div>
-    <a href="discord.html" class="btn-discord">Join Our Discord</a>
+
+    <a href="discord.html" class="btn-discord">
+      Join Our Discord
+    </a>
+
   </div>
+
 </div>
-<footer>
-  <div class="logo"><span class="logo-main">SPEARZ</span><span class="logo-sub">FFA</span></div>
-  <div class="footer-text">© 2026 Spearz FFA. All rights reserved.<br>This server is not affiliated with Mojang AB.</div>
-  <div class="footer-links"><a href="store.html">Store</a><a href="support.html">Support</a><a href="discord.html">Discord</a></div>
-  <div class="footer-socials">
-    <a class="social-btn" href="discord.html">💬</a>
-    <a class="social-btn" href="#">🐦</a>
-    <a class="social-btn" href="#">🎵</a>
-    <a class="social-btn" href="#">▶️</a>
-  </div>
-</footer>
+
 <script>
+// ================= PARTICLES =================
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
 const particles = Array.from({length: 60}, () => ({
-  x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-  r: Math.random() * 2 + 0.5, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-  color: Math.random() > 0.5 ? 'rgba(124,58,237,' : 'rgba(76,201,240,', opacity: Math.random() * 0.5 + 0.1
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 2 + 0.5,
+  vx: (Math.random() - 0.5) * 0.3,
+  vy: (Math.random() - 0.5) * 0.3,
+  color: Math.random() > 0.5
+    ? 'rgba(124,58,237,'
+    : 'rgba(76,201,240,',
+  opacity: Math.random() * 0.5 + 0.1
 }));
+
 function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
   particles.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
-    if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = p.color + p.opacity + ')'; ctx.fill();
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0) p.x = canvas.width;
+    if (p.x > canvas.width) p.x = 0;
+    if (p.y < 0) p.y = canvas.height;
+    if (p.y > canvas.height) p.y = 0;
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle = p.color + p.opacity + ')';
+    ctx.fill();
   });
+
   requestAnimationFrame(animateParticles);
 }
+
 animateParticles();
+
+// ================= MINECRAFT LIVE =================
+async function updateMinecraft() {
+  try {
+
+    const res = await fetch(
+      "https://api.mcsrvstat.us/2/spearz.net"
+    );
+
+    const data = await res.json();
+
+    const online = data.players?.online || 0;
+    const max = data.players?.max || 1000;
+
+    document.getElementById("mc-players").textContent =
+      `${online} / ${max}`;
+
+    const percent = (online / max) * 100;
+
+    document.getElementById("mc-bar").style.width =
+      percent + "%";
+
+  } catch(err) {
+    console.log("Minecraft API error", err);
+  }
+}
+
+// ================= DISCORD LIVE =================
+async function updateDiscord() {
+  try {
+
+    const res = await fetch(
+      "https://discord.com/api/guilds/YOUR_GUILD_ID/widget.json"
+    );
+
+    const data = await res.json();
+
+    const online = data.presence_count || 0;
+
+    document.getElementById("discord-online").textContent =
+      online;
+
+    document.getElementById("discord-members-text").textContent =
+      `+${online} online`;
+
+  } catch(err) {
+    console.log("Discord API error", err);
+  }
+}
+
+// INIT
+updateMinecraft();
+updateDiscord();
+
+// AUTO REFRESH
+setInterval(updateMinecraft, 10000);
+setInterval(updateDiscord, 10000);
+
 </script>
+
 </body>
 </html>
