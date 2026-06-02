@@ -32,6 +32,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px
 .card-top{height:130px;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;}
 .owner-glow{background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(245,158,11,0.04));}
 .coowner-glow{background:linear-gradient(135deg,rgba(168,85,247,0.08),rgba(124,58,237,0.04));}
+.Manager-glow{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(220,38,38,0.04));}
 .admin-glow{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(220,38,38,0.04));}
 .mod-glow{background:linear-gradient(135deg,rgba(6,182,212,0.08),rgba(8,145,178,0.04));}
 .helper-glow{background:linear-gradient(135deg,rgba(74,222,128,0.08),rgba(34,197,94,0.04));}
@@ -40,6 +41,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px
 .role-chip{position:absolute;top:8px;right:8px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;}
 .chip-owner{background:rgba(251,191,36,0.2);color:#fbbf24;border:1px solid rgba(251,191,36,0.3);}
 .chip-coowner{background:rgba(168,85,247,0.2);color:#a855f7;border:1px solid rgba(168,85,247,0.3);}
+.chip-Manager{background:rgba(239,68,68,0.2);color:#ef4444;border:1px solid rgba(239,68,68,0.3);}
 .chip-admin{background:rgba(239,68,68,0.2);color:#ef4444;border:1px solid rgba(239,68,68,0.3);}
 .chip-mod{background:rgba(6,182,212,0.2);color:#06b6d4;border:1px solid rgba(6,182,212,0.3);}
 .chip-helper{background:rgba(74,222,128,0.2);color:#4ade80;border:1px solid rgba(74,222,128,0.3);}
@@ -100,6 +102,7 @@ footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:32p
   <button class="role-btn active" onclick="filterRole('all',this)">All</button>
   <button class="role-btn" onclick="filterRole('Owner',this)">👑 Owner</button>
   <button class="role-btn" onclick="filterRole('Co Owner',this)">⭐ Co Owner</button>
+   <button class="role-btn" onclick="filterRole('Manager',this)">🛡️ Manager</button>
   <button class="role-btn" onclick="filterRole('Admin',this)">🛡️ Admin</button>
   <button class="role-btn" onclick="filterRole('Moderator',this)">⚔️ Mod</button>
   <button class="role-btn" onclick="filterRole('Senior ssr',this)">🔥 SSR</button>
@@ -139,7 +142,7 @@ const staff=[
   {name:'airstick',role:'Owner',icon:'👑',bg:'owner-glow',chip:'chip-owner',desc:'Founder and lead developer of Spearz FFA. Keeps the server running 24/7 and handles all major decisions.',badgeBg:'rgba(251,191,36,0.15)',badgeColor:'#fbbf24'},
   {name:'Christ1ano',role:'Owner',icon:'👑',bg:'owner-glow',chip:'chip-owner',desc:'Co-founder of Spearz FFA. Manages community relations and handles partnerships.',badgeBg:'rgba(251,191,36,0.15)',badgeColor:'#fbbf24'},
   {name:'Rimpeltje',role:'Co Owner',icon:'⭐',bg:'coowner-glow',chip:'chip-coowner',desc:'Co-Owner responsible for staff management and event coordination on the server.',badgeBg:'rgba(168,85,247,0.15)',badgeColor:'#a855f7'},
-  {name:'Teunic',role:'Manager',icon:'🛡️',bg:'admin-glow',chip:'chip-admin',desc:'Senior Administrator. Handles ban appeals, manages reports and keeps order on the server.',badgeBg:'rgba(239,68,68,0.15)',badgeColor:'#ef4444'},
+  {name:'Teunic',role:'Manager',icon:'🛡️',bg:'Manager-glow',chip:'chip-Manager',desc:'Manager. Handles ban appeals, manages reports and keeps order on the server.',badgeBg:'rgba(239,68,68,0.15)',badgeColor:'#ef4444'},
   {name:'Bas',role:'Moderator',icon:'⚔️',bg:'mod-glow',chip:'chip-mod',desc:'Experienced moderator. Watches the server daily and handles rule violations.',badgeBg:'rgba(6,182,212,0.15)',badgeColor:'#06b6d4'},
   {name:'Keano',role:'Senior sser',icon:'🔥',bg:'senior-glow',chip:'chip-senior',desc:'SSR is a PC checker that scans your system to detect cheats and unauthorized modifications in games.',badgeBg:'rgba(249,115,22,0.15)',badgeColor:'#f97316'},
   {name:'Janw00rd12',role:'Builder',icon:'🔨',bg:'builder-glow',chip:'chip-builder',desc:'Lead Builder responsible for the arena maps and spawn design on Spearz FFA.',badgeBg:'rgba(99,102,241,0.15)',badgeColor:'#818cf8'},
