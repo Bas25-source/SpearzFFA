@@ -138,13 +138,15 @@ nav{
 .panel-title{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;}
 .status-online{display:flex;align-items:center;gap:6px;font-size:12px;color:#4ade80;font-weight:600;}
 .status-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;box-shadow:0 0 8px #4ade80;animation:pulse 2s infinite;}
+.status-offline{display:flex;align-items:center;gap:6px;font-size:12px;color:#f87171;font-weight:600;}
+.status-dot-off{width:8px;height:8px;background:#f87171;border-radius:50%;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
 .server-info{display:flex;flex-direction:column;gap:12px;}
 .server-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;}
 .server-row .label{color:#64748b;}
-.server-row .value{color:#fff;font-weight:600;}
+.server-row .value{color:#fff;font-weight:600;transition:color .4s;}
 .progress-bar{height:6px;background:rgba(255,255,255,0.07);border-radius:3px;margin-top:6px;overflow:hidden;}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple2));border-radius:3px;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple2));border-radius:3px;transition:width 1s ease;}
 .btn-join{
   width:100%;margin-top:20px;padding:12px;border-radius:8px;border:none;cursor:pointer;
   font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;
@@ -161,6 +163,8 @@ nav{
 .lb-avatar{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#6d28d9,#a855f7);display:flex;align-items:center;justify-content:center;font-size:14px;}
 .lb-name{flex:1;font-size:13px;font-weight:600;color:#e2e8f0;}
 .lb-kills{font-size:13px;font-weight:700;color:var(--purple2);}
+@keyframes killFlash{0%{color:#4ade80;transform:scale(1.2);}100%{color:var(--purple2);transform:scale(1);}}
+.kill-flash{animation:killFlash .6s ease forwards;}
 .btn-view-all{
   width:100%;margin-top:16px;padding:11px;border-radius:8px;cursor:pointer;
   font-family:'Exo 2',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;
@@ -243,33 +247,60 @@ footer{
   <div class="feature-item" style="border-right:none;"><span class="feature-icon">✨</span><div><div class="feature-title">Cosmetics</div><div class="feature-desc">Stand out with cool cosmetics & tags.</div></div></div>
 </div>
 <div class="panels">
+
+  <!-- ═══ PANEL 1: SERVER STATUS ═══ -->
   <div class="panel">
-    <div class="panel-header"><span class="panel-title">Server Status</span><span class="status-online"><span class="status-dot"></span> Online</span></div>
+    <div class="panel-header">
+      <span class="panel-title">Server Status</span>
+      <span id="mc-status-badge" class="status-online"><span class="status-dot"></span> Online</span>
+    </div>
     <div class="server-info">
-      <div class="server-row"><span class="label">IP Address</span><span class="value" style="font-size:12px;color:#a78bfa;">spearzffa.khplay.nl</span></div>
-      <div><div class="server-row"><span class="label">Players Online</span><span class="value">243 / 1000</span></div><div class="progress-bar"><div class="progress-fill" style="width:24.3%"></div></div></div>
-      <div class="server-row"><span class="label">Version</span><span class="value">1.21.11</span></div>
+      <div class="server-row">
+        <span class="label">IP Address</span>
+        <span class="value" style="font-size:12px;color:#a78bfa;">spearzffa.khplay.nl</span>
+      </div>
+      <div>
+        <div class="server-row">
+          <span class="label">Players Online</span>
+          <span class="value" id="mc-player-count">... / 1000</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="mc-progress" style="width:0%"></div></div>
+      </div>
+      <div class="server-row">
+        <span class="label">Version</span>
+        <span class="value" id="mc-version">1.21.4</span>
+      </div>
       <div class="server-row"><span class="label">Mode</span><span class="value">FFA PvP</span></div>
     </div>
     <button class="btn-join" onclick="navigator.clipboard.writeText('spearzffa.khplay.nl');this.textContent='✅ Copied!';setTimeout(()=>this.textContent='⚔️ Copy IP & Join',1500)">⚔️ Copy IP & Join</button>
   </div>
+
+  <!-- ═══ PANEL 2: LEADERBOARD ═══ -->
   <div class="panel">
     <div class="panel-header"><span class="panel-title">🏅 Top Kills Leaderboard</span></div>
-    <div class="lb-row"><div class="lb-rank gold">1</div><div class="lb-avatar">🗡️</div><div class="lb-name">NotSpearz</div><div class="lb-kills">12,456</div></div>
-    <div class="lb-row"><div class="lb-rank silver">2</div><div class="lb-avatar">🔥</div><div class="lb-name">Tryh4rd</div><div class="lb-kills">9,876</div></div>
-    <div class="lb-row"><div class="lb-rank bronze">3</div><div class="lb-avatar">💀</div><div class="lb-name">ComboKing</div><div class="lb-kills">8,765</div></div>
-    <div class="lb-row"><div class="lb-rank">4</div><div class="lb-avatar">⚔️</div><div class="lb-name">BannedFromMC</div><div class="lb-kills">7,654</div></div>
-    <div class="lb-row"><div class="lb-rank">5</div><div class="lb-avatar">🎯</div><div class="lb-name">SpearzLegend</div><div class="lb-kills">6,543</div></div>
+    <div id="lb-list">
+      <!-- filled by JS -->
+      <div class="lb-row"><div class="lb-rank gold">1</div><div class="lb-avatar">🗡️</div><div class="lb-name">NotSpearz</div><div class="lb-kills">12,456</div></div>
+      <div class="lb-row"><div class="lb-rank silver">2</div><div class="lb-avatar">🔥</div><div class="lb-name">Tryh4rd</div><div class="lb-kills">9,876</div></div>
+      <div class="lb-row"><div class="lb-rank bronze">3</div><div class="lb-avatar">💀</div><div class="lb-name">ComboKing</div><div class="lb-kills">8,765</div></div>
+      <div class="lb-row"><div class="lb-rank">4</div><div class="lb-avatar">⚔️</div><div class="lb-name">BannedFromMC</div><div class="lb-kills">7,654</div></div>
+      <div class="lb-row"><div class="lb-rank">5</div><div class="lb-avatar">🎯</div><div class="lb-name">SpearzLegend</div><div class="lb-kills">6,543</div></div>
+    </div>
     <a href="leaderboard.html" class="btn-view-all">View Full Leaderboards →</a>
   </div>
+
+  <!-- ═══ PANEL 3: DISCORD ═══ -->
   <div class="panel">
-    <div class="panel-header"><span class="panel-title">💬 Discord Community</span><span class="status-online"><span class="status-dot"></span> 250+ Online</span></div>
+    <div class="panel-header">
+      <span class="panel-title">💬 Discord Community</span>
+      <span class="status-online"><span class="status-dot"></span> <span id="dc-badge">250+</span> Online</span>
+    </div>
     <div class="discord-card">
       <div class="discord-head">
         <img src="spearzffa.png" alt="Spearz FFA">
         <div>
           <div class="discord-name">Spearz FFA</div>
-          <div class="discord-link">https://discord.gg/bDwMnY7Z7</div>
+          <div class="discord-link">discord.gg/4DxKv3VtV</div>
         </div>
       </div>
       <div class="discord-channels">
@@ -283,11 +314,12 @@ footer{
         <div class="mini-avatar" style="background:linear-gradient(135deg,#06b6d4,#3b82f6)">T</div>
         <div class="mini-avatar" style="background:linear-gradient(135deg,#ec4899,#a855f7)">C</div>
         <div class="mini-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">S</div>
-        <span class="online-count"> 250+ online</span>
+        <span class="online-count" id="dc-count"> 250+ online</span>
       </div>
     </div>
-    <a href="discord.html" class="btn-discord">Join Our Discord</a>
+    <a href="https://discord.gg/4DxKv3VtV" target="_blank" class="btn-discord">Join Our Discord</a>
   </div>
+
 </div>
 <footer>
   <div class="logo"><span class="logo-main">SPEARZ</span><span class="logo-sub">FFA</span></div>
@@ -301,28 +333,198 @@ footer{
   </div>
 </footer>
 <script>
+/* ─── PARTICLES ─────────────────────────────────────────── */
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
-const particles = Array.from({length: 60}, () => ({
-  x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-  r: Math.random() * 2 + 0.5, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-  color: Math.random() > 0.5 ? 'rgba(124,58,237,' : 'rgba(76,201,240,', opacity: Math.random() * 0.5 + 0.1
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+const particles = Array.from({length:60},()=>({
+  x:Math.random()*canvas.width, y:Math.random()*canvas.height,
+  r:Math.random()*2+0.5, vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
+  color:Math.random()>.5?'rgba(124,58,237,':'rgba(76,201,240,', opacity:Math.random()*.5+.1
 }));
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
-    if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = p.color + p.opacity + ')'; ctx.fill();
+function animateParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0)p.x=canvas.width; if(p.x>canvas.width)p.x=0;
+    if(p.y<0)p.y=canvas.height; if(p.y>canvas.height)p.y=0;
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.color+p.opacity+')'; ctx.fill();
   });
   requestAnimationFrame(animateParticles);
 }
 animateParticles();
+
+/* ═══════════════════════════════════════════════════════════
+   1.  MINECRAFT — live player count
+   API: api.mcstatus.io  (CORS-enabled, no key needed)
+   Fallback: api.mcsrvstat.us/3  (second attempt)
+   Interval: every 30 seconds
+═══════════════════════════════════════════════════════════ */
+const MC_IP  = 'spearzffa.khplay.nl';
+const MC_MAX = 1000;
+let prevPlayers = null;
+
+async function fetchMC() {
+  const badge    = document.getElementById('mc-status-badge');
+  const countEl  = document.getElementById('mc-player-count');
+  const bar      = document.getElementById('mc-progress');
+  const verEl    = document.getElementById('mc-version');
+
+  /* Try two public APIs — first one that responds wins */
+  const APIS = [
+    {
+      url:   `https://api.mcstatus.io/v2/status/java/${MC_IP}`,
+      adapt: d => ({ online: d.online, players: d.players?.online ?? 0, max: d.players?.max ?? MC_MAX, ver: d.version?.name_clean ?? null })
+    },
+    {
+      url:   `https://api.mcsrvstat.us/3/${MC_IP}`,
+      adapt: d => ({ online: d.online, players: d.players?.online ?? 0, max: d.players?.max ?? MC_MAX, ver: d.version ?? null })
+    }
+  ];
+
+  for (const api of APIS) {
+    try {
+      const r = await fetch(api.url, { cache: 'no-store' });
+      if (!r.ok) continue;
+      const raw  = await r.json();
+      const data = api.adapt(raw);
+
+      if (data.online) {
+        badge.className = 'status-online';
+        badge.innerHTML = '<span class="status-dot"></span> Online';
+
+        /* Flash green/red when count changes */
+        if (prevPlayers !== null && data.players !== prevPlayers) {
+          countEl.style.color = data.players > prevPlayers ? '#4ade80' : '#f87171';
+          setTimeout(() => { countEl.style.color = '#fff'; }, 900);
+        }
+        prevPlayers = data.players;
+        countEl.textContent = `${data.players} / ${data.max}`;
+        bar.style.width     = `${Math.min(data.players / data.max * 100, 100)}%`;
+        if (data.ver) verEl.textContent = data.ver;
+      } else {
+        badge.className = 'status-offline';
+        badge.innerHTML = '<span class="status-dot-off"></span> Offline';
+        countEl.textContent = '0 / ' + MC_MAX;
+        bar.style.width = '0%';
+      }
+      return; /* success — stop loop */
+    } catch(_) { /* try next */ }
+  }
+}
+
+fetchMC();
+setInterval(fetchMC, 30_000);
+
+/* ═══════════════════════════════════════════════════════════
+   2.  LEADERBOARD — top kills
+   ─────────────────────────────────────────────────────────
+   HOW TO CONNECT YOUR OWN SERVER DATA:
+   Set KILLS_URL to a JSON endpoint your Minecraft server
+   or hosting panel exposes.  Expected format:
+     [ {"name":"Player1","kills":1234}, ... ]   (sorted desc)
+
+   Plugins that can produce this:
+     • LeaderHeads  +  a tiny HTTP-export script
+     • PlayerStats  +  custom endpoint
+     • Any plugin that can write stats to a JSON file
+       served by e.g. Apache/Nginx on the same host
+
+   Leave KILLS_URL = null to keep showing the static data
+   from your original HTML until the endpoint is ready.
+═══════════════════════════════════════════════════════════ */
+const KILLS_URL = null; // ← set to your endpoint URL when ready
+
+const EMOJIS  = ['🗡️','🔥','💀','⚔️','🎯','🛡️','💥','🎮','👑','⚡'];
+const CLASSES = ['gold','silver','bronze','','','','','','',''];
+
+let prevKills = {}; /* track previous values for flash animation */
+
+function renderLB(data) {
+  const list = document.getElementById('lb-list');
+  list.innerHTML = data.slice(0, 5).map((p, i) => {
+    const changed = prevKills[p.name] !== undefined && prevKills[p.name] !== p.kills;
+    const flash   = changed ? ' kill-flash' : '';
+    const kills   = p.kills >= 1000 ? (p.kills/1000).toFixed(1).replace('.0','')+'K' : p.kills;
+    return `<div class="lb-row">
+      <div class="lb-rank ${CLASSES[i]}">${i+1}</div>
+      <div class="lb-avatar">${EMOJIS[i]}</div>
+      <div class="lb-name">${p.name}</div>
+      <div class="lb-kills${flash}">${kills}</div>
+    </div>`;
+  }).join('');
+  data.forEach(p => { prevKills[p.name] = p.kills; });
+}
+
+/* Static fallback — same names as your original HTML */
+const STATIC_LB = [
+  {name:'NotSpearz',    kills:12456},
+  {name:'Tryh4rd',      kills:9876},
+  {name:'ComboKing',    kills:8765},
+  {name:'BannedFromMC', kills:7654},
+  {name:'SpearzLegend', kills:6543},
+  {name:'PhantomStrike',kills:5432},
+  {name:'VoidSlayer',   kills:4987},
+  {name:'BlitzRunner',  kills:4201},
+  {name:'IronFist99',   kills:3654},
+  {name:'ShadowEdge',   kills:2987}
+];
+
+async function fetchLB() {
+  if (!KILLS_URL) { renderLB(STATIC_LB); return; }
+  try {
+    const r    = await fetch(KILLS_URL, { cache: 'no-store' });
+    const data = await r.json();
+    if (Array.isArray(data) && data.length) renderLB(data);
+    else renderLB(STATIC_LB);
+  } catch(_) { renderLB(STATIC_LB); }
+}
+
+fetchLB();
+setInterval(fetchLB, 60_000);
+
+/* ═══════════════════════════════════════════════════════════
+   3.  DISCORD — live online member count
+   ─────────────────────────────────────────────────────────
+   Uses the official Discord Widget JSON API.
+
+   ✅ ONE-TIME SETUP (takes 30 seconds):
+     1. Open your Discord server
+     2. Server Settings → Widget → Enable Server Widget ✅
+     3. In that same screen, copy your SERVER ID
+     4. Paste it below as  GUILD_ID = '1234567890...'
+
+   Your invite link is discord.gg/4DxKv3VtV
+   The Guild ID is a long number — NOT the invite code.
+═══════════════════════════════════════════════════════════ */
+const GUILD_ID = null; // ← paste your Discord Server ID here
+
+async function fetchDiscord() {
+  const badge = document.getElementById('dc-badge');
+  const count = document.getElementById('dc-count');
+
+  if (!GUILD_ID) { /* show placeholder until ID is set */
+    badge.textContent = '250+';
+    count.textContent = ' 250+ online';
+    return;
+  }
+
+  try {
+    const r    = await fetch(`https://discord.com/api/guilds/${GUILD_ID}/widget.json`);
+    const data = await r.json();
+    if (data.presence_count !== undefined) {
+      badge.textContent = data.presence_count;
+      count.textContent = ` ${data.presence_count} online`;
+    }
+  } catch(_) {
+    /* widget not yet enabled — keep placeholder */
+  }
+}
+
+fetchDiscord();
+setInterval(fetchDiscord, 30_000);
 </script>
 </body>
 </html>
