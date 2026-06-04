@@ -24,113 +24,38 @@
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Exo 2',sans-serif;overflow-x:hidden;}
 #particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
-nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;height:64px;
-  background:rgba(6,8,16,0.85);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:100;
-}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(6,8,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
 .logo{display:flex;flex-direction:column;line-height:1;}
-.logo-main{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;
-  background:linear-gradient(90deg,#fff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo-main{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;background:linear-gradient(90deg,#fff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .logo-sub{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--neon-purple);}
 .nav-links{display:flex;gap:4px;}
-.nav-links a{
-  color:#94a3b8;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
-  padding:8px 14px;border-radius:6px;transition:all .2s;position:relative;
-}
+.nav-links a{color:#94a3b8;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:8px 14px;border-radius:6px;transition:all .2s;position:relative;}
 .nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(124,58,237,0.15);}
 .nav-links a.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:2px;background:var(--purple2);border-radius:2px;}
 .nav-right{display:flex;align-items:center;gap:10px;}
-.btn-nav{
-  padding:9px 20px;border-radius:8px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;
-  font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;
-  background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;
-  box-shadow:0 0 20px rgba(168,85,247,0.4);transition:all .3s;
-}
+.btn-nav{padding:9px 20px;border-radius:8px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;box-shadow:0 0 20px rgba(168,85,247,0.4);transition:all .3s;}
 .btn-nav:hover{box-shadow:0 0 30px rgba(168,85,247,0.7);transform:translateY(-1px);}
-.hero{
-  position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:80px 20px;overflow:hidden;z-index:1;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 50%,rgba(99,40,200,0.25) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 50%,rgba(168,85,247,0.2) 0%,transparent 60%),
-    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,182,212,0.1) 0%,transparent 60%),
-    linear-gradient(180deg,#080b16 0%,#060810 100%);
-  z-index:-1;
-}
-.hero-bg::before{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237c3aed' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);
-  padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:2px;
-  color:#a78bfa;text-transform:uppercase;margin-bottom:24px;
-}
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 20px;overflow:hidden;z-index:1;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 50%,rgba(99,40,200,0.25) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 50%,rgba(168,85,247,0.2) 0%,transparent 60%),radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,182,212,0.1) 0%,transparent 60%),linear-gradient(180deg,#080b16 0%,#060810 100%);z-index:-1;}
+.hero-bg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237c3aed' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:2px;color:#a78bfa;text-transform:uppercase;margin-bottom:24px;}
 .hero-badge::before{content:'⚡';}
-.hero h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(70px,12vw,140px);
-  line-height:.9;letter-spacing:4px;
-  background:linear-gradient(135deg,#fff 0%,#c4b5fd 40%,var(--neon-purple) 70%,var(--pink) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 40px rgba(181,23,255,0.3));
-  animation:heroGlow 3s ease-in-out infinite alternate;
-}
-@keyframes heroGlow{
-  from{filter:drop-shadow(0 0 30px rgba(181,23,255,0.3));}
-  to{filter:drop-shadow(0 0 60px rgba(76,201,240,0.4));}
-}
-.hero-sub{
-  font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,5vw,56px);
-  letter-spacing:8px;color:var(--neon-blue);margin-top:-8px;
-  text-shadow:0 0 30px rgba(76,201,240,0.6);
-}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(70px,12vw,140px);line-height:.9;letter-spacing:4px;background:linear-gradient(135deg,#fff 0%,#c4b5fd 40%,var(--neon-purple) 70%,var(--pink) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 40px rgba(181,23,255,0.3));animation:heroGlow 3s ease-in-out infinite alternate;}
+@keyframes heroGlow{from{filter:drop-shadow(0 0 30px rgba(181,23,255,0.3));}to{filter:drop-shadow(0 0 60px rgba(76,201,240,0.4));}}
+.hero-sub{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,5vw,56px);letter-spacing:8px;color:var(--neon-blue);margin-top:-8px;text-shadow:0 0 30px rgba(76,201,240,0.6);}
 .hero-desc{color:#94a3b8;font-size:16px;max-width:480px;margin:20px auto 0;line-height:1.7;}
 .hero-desc strong{color:#c4b5fd;}
 .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px;}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;border-radius:10px;border:none;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;
-  text-decoration:none;color:#fff;
-  background:linear-gradient(135deg,#6d28d9,#a855f7);
-  box-shadow:0 0 30px rgba(168,85,247,0.5);transition:all .3s;
-}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;color:#fff;background:linear-gradient(135deg,#6d28d9,#a855f7);box-shadow:0 0 30px rgba(168,85,247,0.5);transition:all .3s;}
 .btn-primary:hover{box-shadow:0 0 50px rgba(168,85,247,0.8);transform:translateY(-2px);}
-.btn-secondary{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;border-radius:10px;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;
-  text-decoration:none;color:#fff;
-  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);transition:all .3s;
-}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;color:#fff;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);transition:all .3s;}
 .btn-secondary:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);}
-.features-bar{
-  display:flex;justify-content:center;flex-wrap:wrap;gap:0;
-  background:rgba(255,255,255,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  position:relative;z-index:1;
-}
-.feature-item{
-  display:flex;align-items:center;gap:12px;
-  padding:22px 32px;border-right:1px solid var(--border);
-  flex:1;min-width:160px;max-width:220px;
-}
+.features-bar{display:flex;justify-content:center;flex-wrap:wrap;gap:0;background:rgba(255,255,255,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1;}
+.feature-item{display:flex;align-items:center;gap:12px;padding:22px 32px;border-right:1px solid var(--border);flex:1;min-width:160px;max-width:220px;}
 .feature-item:last-child{border-right:none;}
 .feature-icon{font-size:24px;filter:drop-shadow(0 0 8px rgba(124,58,237,0.8));}
 .feature-title{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;}
 .feature-desc{font-size:11px;color:#64748b;margin-top:2px;}
-.section{padding:80px 48px;position:relative;z-index:1;}
-.section-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--purple2);margin-bottom:8px;text-align:center;}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,52px);letter-spacing:3px;text-align:center;margin-bottom:40px;color:#fff;}
-.section-title span{background:linear-gradient(90deg,var(--neon-blue),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .panels{display:grid;grid-template-columns:1fr 2fr 1.5fr;gap:20px;padding:0 48px 80px;position:relative;z-index:1;}
 @media(max-width:900px){.panels{grid-template-columns:1fr;}}
 .panel{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:16px;padding:24px;}
@@ -147,12 +72,7 @@ nav{
 .server-row .value{color:#fff;font-weight:600;transition:color .4s;}
 .progress-bar{height:6px;background:rgba(255,255,255,0.07);border-radius:3px;margin-top:6px;overflow:hidden;}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple2));border-radius:3px;transition:width 1s ease;}
-.btn-join{
-  width:100%;margin-top:20px;padding:12px;border-radius:8px;border:none;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;
-  background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;
-  box-shadow:0 0 20px rgba(168,85,247,0.4);transition:all .3s;
-}
+.btn-join{width:100%;margin-top:20px;padding:12px;border-radius:8px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff;box-shadow:0 0 20px rgba(168,85,247,0.4);transition:all .3s;}
 .btn-join:hover{box-shadow:0 0 30px rgba(168,85,247,0.7);}
 .lb-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);}
 .lb-row:last-child{border-bottom:none;}
@@ -165,11 +85,7 @@ nav{
 .lb-kills{font-size:13px;font-weight:700;color:var(--purple2);}
 @keyframes killFlash{0%{color:#4ade80;transform:scale(1.2);}100%{color:var(--purple2);transform:scale(1);}}
 .kill-flash{animation:killFlash .6s ease forwards;}
-.btn-view-all{
-  width:100%;margin-top:16px;padding:11px;border-radius:8px;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;
-  background:transparent;color:#94a3b8;border:1px solid var(--border);transition:all .3s;text-decoration:none;display:block;text-align:center;
-}
+.btn-view-all{width:100%;margin-top:16px;padding:11px;border-radius:8px;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;background:transparent;color:#94a3b8;border:1px solid var(--border);transition:all .3s;text-decoration:none;display:block;text-align:center;}
 .btn-view-all:hover{border-color:var(--purple2);color:#fff;}
 .discord-card{background:rgba(88,101,242,0.1);border:1px solid rgba(88,101,242,0.2);border-radius:12px;padding:16px;margin-bottom:14px;}
 .discord-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
@@ -183,27 +99,15 @@ nav{
 .online-users{display:flex;gap:-4px;margin:12px 0 8px;}
 .mini-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6d28d9,#ec4899);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:11px;margin-right:-6px;}
 .online-count{font-size:12px;color:#64748b;margin-left:16px;align-self:center;}
-.btn-discord{
-  width:100%;padding:12px;border-radius:8px;border:none;cursor:pointer;
-  font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;
-  background:#5865f2;color:#fff;transition:all .3s;text-decoration:none;display:block;text-align:center;
-}
+.btn-discord{width:100%;padding:12px;border-radius:8px;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;background:#5865f2;color:#fff;transition:all .3s;text-decoration:none;display:block;text-align:center;}
 .btn-discord:hover{background:#4752c4;box-shadow:0 0 20px rgba(88,101,242,0.5);}
-footer{
-  background:rgba(0,0,0,0.4);border-top:1px solid var(--border);
-  padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
-  position:relative;z-index:1;
-}
+footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1;}
 .footer-text{font-size:12px;color:#475569;line-height:1.6;}
 .footer-links{display:flex;gap:20px;}
 .footer-links a{font-size:12px;color:#475569;text-decoration:none;transition:color .2s;}
 .footer-links a:hover{color:#a78bfa;}
 .footer-socials{display:flex;gap:10px;}
-.social-btn{
-  width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;
-  text-decoration:none;transition:all .2s;
-}
+.social-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;text-decoration:none;transition:all .2s;}
 .social-btn:hover{background:rgba(124,58,237,0.2);border-color:var(--purple2);}
 </style>
 </head>
@@ -247,8 +151,7 @@ footer{
   <div class="feature-item" style="border-right:none;"><span class="feature-icon">✨</span><div><div class="feature-title">Cosmetics</div><div class="feature-desc">Stand out with cool cosmetics & tags.</div></div></div>
 </div>
 <div class="panels">
-
-  <!-- ═══ PANEL 1: SERVER STATUS ═══ -->
+  <!-- SERVER STATUS -->
   <div class="panel">
     <div class="panel-header">
       <span class="panel-title">Server Status</span>
@@ -272,14 +175,13 @@ footer{
       </div>
       <div class="server-row"><span class="label">Mode</span><span class="value">FFA PvP</span></div>
     </div>
-    <button class="btn-join" onclick="navigator.clipboard.writeText('play.spearzffa.eu');this.textContent='✅ Copied!';setTimeout(()=>this.textContent='⚔️ Copy IP & Join',1500)">⚔️ Copy IP & Join</button>
+    <button class="btn-join" onclick="navigator.clipboard.writeText('play.spearzffa.eu');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy IP & Join',1500)">⚔️ Copy IP & Join</button>
   </div>
 
-  <!-- ═══ PANEL 2: LEADERBOARD ═══ -->
+  <!-- LEADERBOARD -->
   <div class="panel">
     <div class="panel-header"><span class="panel-title">🏅 Top Kills Leaderboard</span></div>
     <div id="lb-list">
-      <!-- filled by JS -->
       <div class="lb-row"><div class="lb-rank gold">1</div><div class="lb-avatar">🗡️</div><div class="lb-name">NotSpearz</div><div class="lb-kills">12,456</div></div>
       <div class="lb-row"><div class="lb-rank silver">2</div><div class="lb-avatar">🔥</div><div class="lb-name">Tryh4rd</div><div class="lb-kills">9,876</div></div>
       <div class="lb-row"><div class="lb-rank bronze">3</div><div class="lb-avatar">💀</div><div class="lb-name">ComboKing</div><div class="lb-kills">8,765</div></div>
@@ -289,7 +191,7 @@ footer{
     <a href="leaderboard.html" class="btn-view-all">View Full Leaderboards →</a>
   </div>
 
-  <!-- ═══ PANEL 3: DISCORD ═══ -->
+  <!-- DISCORD -->
   <div class="panel">
     <div class="panel-header">
       <span class="panel-title">💬 Discord Community</span>
@@ -319,8 +221,8 @@ footer{
     </div>
     <a href="https://discord.gg/4DxKv3VtV" target="_blank" class="btn-discord">Join Our Discord</a>
   </div>
-
 </div>
+
 <footer>
   <div class="logo"><span class="logo-main">SPEARZ</span><span class="logo-sub">FFA</span></div>
   <div class="footer-text">© 2026 Spearz FFA. All rights reserved.<br>This server is not affiliated with Mojang AB.</div>
@@ -332,8 +234,9 @@ footer{
     <a class="social-btn" href="youtubespearz">▶️</a>
   </div>
 </footer>
+
 <script>
-/* ─── PARTICLES ─────────────────────────────────────────── */
+/* PARTICLES */
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -356,23 +259,17 @@ function animateParticles(){
 }
 animateParticles();
 
-/* ═══════════════════════════════════════════════════════════
-   1.  MINECRAFT — live player count
-   API: api.mcstatus.io  (CORS-enabled, no key needed)
-   Fallback: api.mcsrvstat.us/3  (second attempt)
-   Interval: every 30 seconds
-═══════════════════════════════════════════════════════════ */
-const MC_IP  = 'spearzffa.khplay.nl';
+/* MINECRAFT STATUS — updated to play.spearzffa.eu */
+const MC_IP  = 'play.spearzffa.eu';
 const MC_MAX = 1000;
 let prevPlayers = null;
 
 async function fetchMC() {
-  const badge    = document.getElementById('mc-status-badge');
-  const countEl  = document.getElementById('mc-player-count');
-  const bar      = document.getElementById('mc-progress');
-  const verEl    = document.getElementById('mc-version');
+  const badge   = document.getElementById('mc-status-badge');
+  const countEl = document.getElementById('mc-player-count');
+  const bar     = document.getElementById('mc-progress');
+  const verEl   = document.getElementById('mc-version');
 
-  /* Try two public APIs — first one that responds wins */
   const APIS = [
     {
       url:   `https://api.mcstatus.io/v2/status/java/${MC_IP}`,
@@ -394,15 +291,13 @@ async function fetchMC() {
       if (data.online) {
         badge.className = 'status-online';
         badge.innerHTML = '<span class="status-dot"></span> Online';
-
-        /* Flash green/red when count changes */
         if (prevPlayers !== null && data.players !== prevPlayers) {
           countEl.style.color = data.players > prevPlayers ? '#4ade80' : '#f87171';
           setTimeout(() => { countEl.style.color = '#fff'; }, 900);
         }
         prevPlayers = data.players;
         countEl.textContent = `${data.players} / ${data.max}`;
-        bar.style.width     = `${Math.min(data.players / data.max * 100, 100)}%`;
+        bar.style.width = `${Math.min(data.players / data.max * 100, 100)}%`;
         if (data.ver) verEl.textContent = data.ver;
       } else {
         badge.className = 'status-offline';
@@ -410,37 +305,19 @@ async function fetchMC() {
         countEl.textContent = '0 / ' + MC_MAX;
         bar.style.width = '0%';
       }
-      return; /* success — stop loop */
-    } catch(_) { /* try next */ }
+      return;
+    } catch(_) { /* try next API */ }
   }
 }
 
 fetchMC();
 setInterval(fetchMC, 30_000);
 
-/* ═══════════════════════════════════════════════════════════
-   2.  LEADERBOARD — top kills
-   ─────────────────────────────────────────────────────────
-   HOW TO CONNECT YOUR OWN SERVER DATA:
-   Set KILLS_URL to a JSON endpoint your Minecraft server
-   or hosting panel exposes.  Expected format:
-     [ {"name":"Player1","kills":1234}, ... ]   (sorted desc)
-
-   Plugins that can produce this:
-     • LeaderHeads  +  a tiny HTTP-export script
-     • PlayerStats  +  custom endpoint
-     • Any plugin that can write stats to a JSON file
-       served by e.g. Apache/Nginx on the same host
-
-   Leave KILLS_URL = null to keep showing the static data
-   from your original HTML until the endpoint is ready.
-═══════════════════════════════════════════════════════════ */
-const KILLS_URL = null; // ← set to your endpoint URL when ready
-
+/* LEADERBOARD */
+const KILLS_URL = null;
 const EMOJIS  = ['🗡️','🔥','💀','⚔️','🎯','🛡️','💥','🎮','👑','⚡'];
 const CLASSES = ['gold','silver','bronze','','','','','','',''];
-
-let prevKills = {}; /* track previous values for flash animation */
+let prevKills = {};
 
 function renderLB(data) {
   const list = document.getElementById('lb-list');
@@ -458,7 +335,6 @@ function renderLB(data) {
   data.forEach(p => { prevKills[p.name] = p.kills; });
 }
 
-/* Static fallback — same names as your original HTML */
 const STATIC_LB = [
   {name:'NotSpearz',    kills:12456},
   {name:'Tryh4rd',      kills:9876},
@@ -485,32 +361,13 @@ async function fetchLB() {
 fetchLB();
 setInterval(fetchLB, 60_000);
 
-/* ═══════════════════════════════════════════════════════════
-   3.  DISCORD — live online member count
-   ─────────────────────────────────────────────────────────
-   Uses the official Discord Widget JSON API.
-
-   ✅ ONE-TIME SETUP (takes 30 seconds):
-     1. Open your Discord server
-     2. Server Settings → Widget → Enable Server Widget ✅
-     3. In that same screen, copy your SERVER ID
-     4. Paste it below as  GUILD_ID = '1234567890...'
-
-   Your invite link is discord.gg/4DxKv3VtV
-   The Guild ID is a long number — NOT the invite code.
-═══════════════════════════════════════════════════════════ */
-const GUILD_ID = null; // ← paste your Discord Server ID here
+/* DISCORD */
+const GUILD_ID = null;
 
 async function fetchDiscord() {
   const badge = document.getElementById('dc-badge');
   const count = document.getElementById('dc-count');
-
-  if (!GUILD_ID) { /* show placeholder until ID is set */
-    badge.textContent = '250+';
-    count.textContent = ' 250+ online';
-    return;
-  }
-
+  if (!GUILD_ID) { badge.textContent = '250+'; count.textContent = ' 250+ online'; return; }
   try {
     const r    = await fetch(`https://discord.com/api/guilds/${GUILD_ID}/widget.json`);
     const data = await r.json();
@@ -518,9 +375,7 @@ async function fetchDiscord() {
       badge.textContent = data.presence_count;
       count.textContent = ` ${data.presence_count} online`;
     }
-  } catch(_) {
-    /* widget not yet enabled — keep placeholder */
-  }
+  } catch(_) {}
 }
 
 fetchDiscord();
