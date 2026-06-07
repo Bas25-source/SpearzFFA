@@ -83,12 +83,12 @@ footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:32p
 </nav>
 <div class="page-header">
   <div class="page-label">Spearz FFA</div>
-  <div class="page-title">Top Players</div>
+  <div class="page-title">Coming soon </div>
 </div>
 <div class="podium">
-  <div class="podium-item podium-2"><div class="podium-badge pb2">#2</div><div class="podium-avatar p2-avatar">🔥</div><div class="podium-name">Tryh4rd</div><div class="podium-kills">9,876 kills</div></div>
-  <div class="podium-item podium-1"><div class="podium-badge pb1">#1</div><div class="podium-crown">👑</div><div class="podium-avatar p1-avatar">🗡️</div><div class="podium-name">NotSpearz</div><div class="podium-kills">12,456 kills</div></div>
-  <div class="podium-item podium-3"><div class="podium-badge pb3">#3</div><div class="podium-avatar p3-avatar">💀</div><div class="podium-name">ComboKing</div><div class="podium-kills">8,765 kills</div></div>
+  <div class="podium-item podium-2"><div class="podium-badge pb2">#2</div><div class="podium-avatar p2-avatar">🔥</div><div class="podium-name"></div><div class="podium-kills"></div></div>
+  <div class="podium-item podium-1"><div class="podium-badge pb1">#1</div><div class="podium-crown">👑</div><div class="podium-avatar p1-avatar">🗡️</div><div class="podium-name"></div><div class="podium-kills"></div></div>
+  <div class="podium-item podium-3"><div class="podium-badge pb3">#3</div><div class="podium-avatar p3-avatar">💀</div><div class="podium-name"></div><div class="podium-kills"></div></div>
 </div>
 <div class="search-bar">
   <input class="search-input" type="text" placeholder="🔍 Search player..." id="searchInput" oninput="filterTable()">
@@ -106,21 +106,21 @@ footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:32p
 </footer>
 <script>
 const players=[
-  {rank:1,name:'NotSpearz',title:'Server Owner',icon:'🗡️',kills:12456,kd:4.2},
-  {rank:2,name:'Tryh4rd',title:'Elite Fighter',icon:'🔥',kills:9876,kd:3.8},
-  {rank:3,name:'ComboKing',title:'PvP Legend',icon:'💀',kills:8765,kd:3.5},
-  {rank:4,name:'BannedFromMC',title:'Tryhard',icon:'⚔️',kills:7654,kd:2.9},
-  {rank:5,name:'SpearzLegend',title:'Veteran',icon:'🎯',kills:6543,kd:2.7},
-  {rank:6,name:'NightBlade',title:'Shadow Warrior',icon:'🌑',kills:6120,kd:2.5},
-  {rank:7,name:'Rimpeltje',title:'Co-Owner',icon:'🛡️',kills:5820,kd:2.3},
-  {rank:8,name:'FastClick',title:'CPS Monster',icon:'⚡',kills:5411,kd:2.2},
-  {rank:9,name:'ViperStrike',title:'Combo King',icon:'🐍',kills:4980,kd:2.0},
-  {rank:10,name:'ProPvPer',title:'Skilled Fighter',icon:'🏹',kills:4300,kd:1.9},
-  {rank:11,name:'LegacyKid',title:'Rising Star',icon:'🌟',kills:3877,kd:1.7},
-  {rank:12,name:'ArcticFox',title:'Swift',icon:'🦊',kills:3540,kd:1.6},
-  {rank:13,name:'GhostPing',title:'Low Ping',icon:'👻',kills:3210,kd:1.5},
-  {rank:14,name:'PixelRush',title:'Grinder',icon:'🎮',kills:2890,kd:1.4},
-  {rank:15,name:'DarkMatter',title:'Newcomer',icon:'🔮',kills:2440,kd:1.2},
+  {rank:1,name:'',title:'Server Owner',icon:'🗡️',kills:,kd:4.2},
+  {rank:2,name:'',title:'Elite Fighter',icon:'🔥',kills:,kd:3.8},
+  {rank:3,name:'',title:'PvP Legend',icon:'💀',kills:,kd:3.5},
+  {rank:4,name:'',title:'Tryhard',icon:'⚔️',kills:,kd:2.9},
+  {rank:5,name:'',title:'Veteran',icon:'🎯',kills:,kd:2.7},
+  {rank:6,name:'',title:'Shadow Warrior',icon:'🌑',kills:,kd:2.5},
+  {rank:7,name:'',title:'Co-Owner',icon:'🛡️',kills:,kd:2.3},
+  {rank:8,name:'',title:'CPS Monster',icon:'⚡',kills:,kd:2.2},
+  {rank:9,name:'',title:'Combo King',icon:'🐍',kills:,kd:2.0},
+  {rank:10,name:'',title:'Skilled Fighter',icon:'🏹',kills:,kd:1.9},
+  {rank:11,name:'',title:'Rising Star',icon:'🌟',kills:,kd:1.7},
+  {rank:12,name:'',title:'Swift',icon:'🦊',kills:,kd:1.6},
+  {rank:13,name:'',title:'Low Ping',icon:'👻',kills:,kd:1.5},
+  {rank:14,name:'',title:'Grinder',icon:'🎮',kills:,kd:1.4},
+  {rank:15,name:'',title:'Newcomer',icon:'🔮',kills:,kd:1.2},
 ];
 const maxKills=players[0].kills;
 function renderCls(r){if(r===1)return'r-gold';if(r===2)return'r-silver';if(r===3)return'r-bronze';return'r-normal';}
